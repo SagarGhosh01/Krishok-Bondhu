@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: infrastructure/Dockerfile.api
+    container_name: agrishield-api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_ENV=production
+      - DATABASE_URL=sqlite:///./services/api/agrishield.db
+      - SECRET_KEY=production-super-secret-key-change-in-env-please
+      - ONNX_MODEL_PATH=ml/artifacts/deployed/model.onnx
+      - ONNX_METADATA_PATH=ml/artifacts/deployed/metadata.json
+    volumes:
+      - api-uploads:/app/services/api/uploads
+      - db-data:/app/services/api
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  web:
+    build:
+      context: .
+      dockerfile: infrastructure/Dockerfile.web
+    container_name: agrishield-web
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      api:
+        condition: service_healthy
+
+volumes:
+  api-uploads:
+  db-data:

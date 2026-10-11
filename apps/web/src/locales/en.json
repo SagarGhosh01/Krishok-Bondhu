@@ -1,0 +1,100 @@
+{
+  "app": {
+    "name": "AgriShield AI",
+    "screening_aid": "Diagnostic Screening Aid"
+  },
+  "home": {
+    "welcome": "Welcome Back! 👋",
+    "hero_title": "Early Detection Protects Crop Harvests",
+    "hero_desc": "Scan leaf symptoms directly in your field. AgriShield AI combines computer vision with certified agricultural extension practices.",
+    "scan_card_title": "Know plant disease with AgriShield AI",
+    "scan_card_desc": "Get instant calibrated diagnosis and verified prevention guidance.",
+    "scan_now": "Scan Now",
+    "recent_diagnoses": "Recent Diagnoses",
+    "no_scans": "No scans recorded yet. Tap 'Scan Now' to screen your crops.",
+    "offline_badge": "Offline Pending"
+  },
+  "recognition": {
+    "title": "Recognition",
+    "cancel": "Cancel",
+    "analyzing": "Analyzing",
+    "stage_quality": "Checking image focus and lighting...",
+    "stage_preprocess": "Preprocessing foliar dimensions...",
+    "stage_inference": "Running neural disease classification...",
+    "stage_explain": "Synthesizing Grad-CAM explanation...",
+    "guidelines_title": "Pre-Capture Guidance",
+    "guideline_light": "Ensure clear daylight without harsh glare",
+    "guideline_focus": "Hold steady and focus on single affected leaf",
+    "guideline_plain": "Prefer plain background behind leaf blade",
+    "upload_from_gallery": "Upload from Gallery",
+    "crop_select": "Select Crop (Optional):",
+    "all_crops": "Auto-Detect Crop"
+  },
+  "result": {
+    "title": "Result",
+    "treatment_and_prevention": "Treatment and Prevention",
+    "uncertainty_reliability": "Uncertainty & Reliability Indicator",
+    "low": "Low",
+    "high": "High",
+    "calibrated_conf": "Calibrated Confidence",
+    "image_quality": "Image Quality Score",
+    "ood_score": "Foliar In-Distribution Score",
+    "re_analyse": "Re-analyse",
+    "share": "Share",
+    "gradcam_toggle": "Show Grad-CAM Heatmap",
+    "hide_gradcam": "Hide Grad-CAM Heatmap",
+    "gradcam_note": "Highlighted regions show where the model looked. This is a visual screening aid, not proof the prediction is correct.",
+    "note_card": "Note: Early detection and prompt action are crucial for managing crop diseases. If you suspect severe infestation, consult a local agricultural extension agent for specific recommendations.",
+    "differential_candidates": "Differential Candidates (Top-3)",
+    "report_incorrect": "Report Incorrect Prediction",
+    "save_to_farm": "Save to Farm",
+    "model_version_label": "Model Version",
+    "state_confident": "Confident Screening",
+    "state_uncertain": "Uncertain - Consult Expert",
+    "state_rejected": "Cannot Assess - Retake Photo"
+  },
+  "nav": {
+    "home": "Home",
+    "library": "Library",
+    "scan": "Scan",
+    "farms": "Farms",
+    "profile": "Profile"
+  },
+  "library": {
+    "title": "Disease Knowledge Base",
+    "search_placeholder": "Search diseases, symptoms, or pathogens...",
+    "all": "All",
+    "tomato": "Tomato",
+    "potato": "Potato",
+    "corn": "Corn",
+    "symptoms": "Symptoms",
+    "cultural": "Cultural Sanitation",
+    "biological": "Resistant Varieties / Bio-Control",
+    "chemical": "Chemical Advisory Reference",
+    "reviewed_by": "Reviewed by",
+    "review_date": "Review Date"
+  },
+  "farms": {
+    "title": "My Farms & Plots",
+    "add_farm": "Add New Plot",
+    "plot_name": "Plot Name",
+    "crops": "Crops Planted",
+    "area": "Area (Acres)",
+    "soil": "Soil Type",
+    "no_farms": "No plots configured yet. Add your farm to track health over time."
+  },
+  "auth": {
+    "login_title": "Sign In to AgriShield",
+    "register_title": "Create Farmer Account",
+    "email": "Email Address",
+    "password": "Password",
+    "full_name": "Full Name",
+    "sign_in": "Sign In",
+    "sign_up": "Register",
+    "demo_farmer": "Fill Demo Farmer",
+    "demo_admin": "Fill Demo Admin",
+    "no_account": "Don't have an account?",
+    "have_account": "Already have an account?",
+    "logout": "Log Out"
+  }
+}

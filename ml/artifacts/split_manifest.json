@@ -1,0 +1,2246 @@
+{
+  "metadata": {
+    "seed": 42,
+    "train_ratio": 0.7,
+    "val_ratio": 0.15,
+    "test_ratio": 0.15,
+    "hamming_threshold": 2,
+    "total_samples": 238,
+    "counts": {
+      "train": 170,
+      "val": 34,
+      "test": 34
+    },
+    "class_distribution": {
+      "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot": {
+        "train": 10,
+        "val": 2,
+        "test": 2
+      },
+      "Corn_(maize)___Common_rust_": {
+        "train": 10,
+        "val": 2,
+        "test": 2
+      },
+      "Corn_(maize)___Northern_Leaf_Blight": {
+        "train": 10,
+        "val": 2,
+        "test": 2
+      },
+      "Corn_(maize)___healthy": {
+        "train": 10,
+        "val": 2,
+        "test": 2
+      },
+      "Potato___Early_blight": {
+        "train": 10,
+        "val": 2,
+        "test": 2
+      },
+      "Potato___Late_blight": {
+        "train": 10,
+        "val": 2,
+        "test": 2
+      },
+      "Potato___healthy": {
+        "train": 10,
+        "val": 2,
+        "test": 2
+      },
+      "Tomato___Bacterial_spot": {
+        "train": 10,
+        "val": 2,
+        "test": 2
+      },
+      "Tomato___Early_blight": {
+        "train": 10,
+        "val": 2,
+        "test": 2
+      },
+      "Tomato___Late_blight": {
+        "train": 10,
+        "val": 2,
+        "test": 2
+      },
+      "Tomato___Leaf_Mold": {
+        "train": 10,
+        "val": 2,
+        "test": 2
+      },
+      "Tomato___Septoria_leaf_spot": {
+        "train": 10,
+        "val": 2,
+        "test": 2
+      },
+      "Tomato___Spider_mites Two-spotted_spider_mite": {
+        "train": 10,
+        "val": 2,
+        "test": 2
+      },
+      "Tomato___Target_Spot": {
+        "train": 10,
+        "val": 2,
+        "test": 2
+      },
+      "Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
+        "train": 10,
+        "val": 2,
+        "test": 2
+      },
+      "Tomato___Tomato_mosaic_virus": {
+        "train": 10,
+        "val": 2,
+        "test": 2
+      },
+      "Tomato___healthy": {
+        "train": 10,
+        "val": 2,
+        "test": 2
+      }
+    }
+  },
+  "samples": [
+    {
+      "rel_path": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/leaf_000.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot\\leaf_000.jpg",
+      "class_name": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "class_idx": 0,
+      "sha256": "2eea861cae6694179e5926764ad70121e044a646f01fb0022d3af86940069510",
+      "dhash": 13146545904572002956,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/leaf_000_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot\\leaf_000_near_dup.jpg",
+      "class_name": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "class_idx": 0,
+      "sha256": "a2ae6f5cadae7e43f089c9532b27dd804672fced15c2f0f2362118ecc86cecfb",
+      "dhash": 13146545904572002956,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/leaf_001.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot\\leaf_001.jpg",
+      "class_name": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "class_idx": 0,
+      "sha256": "e8a0bf3fb31133af9148757168b985acfb1b34e00789b5aefa0be6e99e654f54",
+      "dhash": 302139116242940238,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/leaf_001_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot\\leaf_001_near_dup.jpg",
+      "class_name": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "class_idx": 0,
+      "sha256": "538df8fa81aa8dccf230bb957fa09c92df174b3ecc9926b75a9a74e5913fb45d",
+      "dhash": 302139116242940238,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/leaf_002.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot\\leaf_002.jpg",
+      "class_name": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "class_idx": 0,
+      "sha256": "35f953ee09293ed78c8e0564fc38b7fef544c8179c8dc9b089206000b0474b42",
+      "dhash": 5490865877278044494,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/leaf_003.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot\\leaf_003.jpg",
+      "class_name": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "class_idx": 0,
+      "sha256": "e06466aa80e42a5cdac4c17e971170b6b43d78c813e88244fec9ab5f9757fd7c",
+      "dhash": 878880778752209484,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/leaf_004.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot\\leaf_004.jpg",
+      "class_name": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "class_idx": 0,
+      "sha256": "33c99772cc2a0bd315e09f8f3b7d112c50a4d65b907d096af989f18bdc9d61be",
+      "dhash": 896912765135974924,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/leaf_005.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot\\leaf_005.jpg",
+      "class_name": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "class_idx": 0,
+      "sha256": "6ac16e92381b662898e9e1526feee1960a039a574190e2dcd8d5a35e9599150a",
+      "dhash": 5670429307297149460,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/leaf_006.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot\\leaf_006.jpg",
+      "class_name": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "class_idx": 0,
+      "sha256": "52d4e45e6eb768cd4aba427ac1814836a909a9597e27438a3b4d9f197df80278",
+      "dhash": 1617189071484465996,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/leaf_007.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot\\leaf_007.jpg",
+      "class_name": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "class_idx": 0,
+      "sha256": "7ce56b6b4ac8cf613b9b611be28556b90329452dce85e0aea42917c90e4af77f",
+      "dhash": 896895586876879372,
+      "split": "val"
+    },
+    {
+      "rel_path": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/leaf_008.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot\\leaf_008.jpg",
+      "class_name": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "class_idx": 0,
+      "sha256": "31f5fd132dac04bff79e22dbbc35ab54db11e5d57702ecd3fb16cf819328d5b9",
+      "dhash": 5526613182140494668,
+      "split": "test"
+    },
+    {
+      "rel_path": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/leaf_009.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot\\leaf_009.jpg",
+      "class_name": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "class_idx": 0,
+      "sha256": "b9432c113f5c959780146ee2693d51e0b9823f4e2d068a9d0bfefd2b61b4f320",
+      "dhash": 1022715041607169096,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/leaf_010.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot\\leaf_010.jpg",
+      "class_name": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "class_idx": 0,
+      "sha256": "583594d918adc978f0bc75efc5f2b439c3420c4c865017c8d3bd5ac47fa771f3",
+      "dhash": 5093968554994807372,
+      "split": "val"
+    },
+    {
+      "rel_path": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot/leaf_011.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot\\leaf_011.jpg",
+      "class_name": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "class_idx": 0,
+      "sha256": "8f4989f75a69a0e912bb4f4a1fca4cb1f1845e13700afb53b87437ad565699df",
+      "dhash": 5490575593272062214,
+      "split": "test"
+    },
+    {
+      "rel_path": "Corn_(maize)___Common_rust_/leaf_000.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Common_rust_\\leaf_000.jpg",
+      "class_name": "Corn_(maize)___Common_rust_",
+      "class_idx": 1,
+      "sha256": "ee16e8f933d1342ce54988e0829dab3c82b6a317b28cf84312ffac576bf206b2",
+      "dhash": 13146545836120957580,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Common_rust_/leaf_000_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Common_rust_\\leaf_000_near_dup.jpg",
+      "class_name": "Corn_(maize)___Common_rust_",
+      "class_idx": 1,
+      "sha256": "aeb71b8426bebfd9c85fefb60df3a81665cdef618c51982be80073783b5e76d0",
+      "dhash": 13146545836120957580,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Common_rust_/leaf_001.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Common_rust_\\leaf_001.jpg",
+      "class_name": "Corn_(maize)___Common_rust_",
+      "class_idx": 1,
+      "sha256": "8450670f2c23c4dd15987c8373bb9e5d1d089a0f1ad899f2317c993f120c26c6",
+      "dhash": 302139099063071308,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Common_rust_/leaf_001_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Common_rust_\\leaf_001_near_dup.jpg",
+      "class_name": "Corn_(maize)___Common_rust_",
+      "class_idx": 1,
+      "sha256": "3a7f6cbf712b791cd917a92c8438699e8bb1c55804e4db4d664b1ef177d62bdf",
+      "dhash": 302139099063071308,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Common_rust_/leaf_003.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Common_rust_\\leaf_003.jpg",
+      "class_name": "Corn_(maize)___Common_rust_",
+      "class_idx": 1,
+      "sha256": "8eb1e79dd5cc0711dfc110f23116c076d287b5d81107c22d6e9c274fe09ad4fc",
+      "dhash": 878880778752209484,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Common_rust_/leaf_009.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Common_rust_\\leaf_009.jpg",
+      "class_name": "Corn_(maize)___Common_rust_",
+      "class_idx": 1,
+      "sha256": "4c11bed5aa71250830de05e7295353c9e5ebe2a27a0acd44b8ecf800116daa3b",
+      "dhash": 878881328508023372,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Common_rust_/leaf_002.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Common_rust_\\leaf_002.jpg",
+      "class_name": "Corn_(maize)___Common_rust_",
+      "class_idx": 1,
+      "sha256": "92a485293751680411c958841bfd5ef8241c7a00cae80e27fb1918c2450a03a3",
+      "dhash": 5526885878203986254,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Common_rust_/leaf_004.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Common_rust_\\leaf_004.jpg",
+      "class_name": "Corn_(maize)___Common_rust_",
+      "class_idx": 1,
+      "sha256": "55c8c4f8cdc9357ee3161bf4b1a7d270e2c70b6e0c66aa3c30fbef2cff1b23f6",
+      "dhash": 878889570533454412,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Common_rust_/leaf_005.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Common_rust_\\leaf_005.jpg",
+      "class_name": "Corn_(maize)___Common_rust_",
+      "class_idx": 1,
+      "sha256": "4caaa79dabcfa5659f0be7d2b12ed6ee4bffe07f286f152b8cb851e596fc7a32",
+      "dhash": 5526604390291026452,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Common_rust_/leaf_006.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Common_rust_\\leaf_006.jpg",
+      "class_name": "Corn_(maize)___Common_rust_",
+      "class_idx": 1,
+      "sha256": "84c79e2ae09304590e6c40755a989b0e8749ea386dcd0a3052d1a1fd70015042",
+      "dhash": 1617189105843680076,
+      "split": "val"
+    },
+    {
+      "rel_path": "Corn_(maize)___Common_rust_/leaf_007.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Common_rust_\\leaf_007.jpg",
+      "class_name": "Corn_(maize)___Common_rust_",
+      "class_idx": 1,
+      "sha256": "edd05f094d5ab3b0ada31335076d811fdc124af5ad993c016983200c1e68584b",
+      "dhash": 878881188904251980,
+      "split": "test"
+    },
+    {
+      "rel_path": "Corn_(maize)___Common_rust_/leaf_008.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Common_rust_\\leaf_008.jpg",
+      "class_name": "Corn_(maize)___Common_rust_",
+      "class_idx": 1,
+      "sha256": "5d1f6c552fc9348bd04eb74ad5af2929bd14768a4b04b04b968bd98f29c44ba7",
+      "dhash": 5526331707162702604,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Common_rust_/leaf_010.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Common_rust_\\leaf_010.jpg",
+      "class_name": "Corn_(maize)___Common_rust_",
+      "class_idx": 1,
+      "sha256": "27ac9529e16d1b73a670fd7475bfba58d260c133311c2c09ae64d9c847220892",
+      "dhash": 4949870959104995916,
+      "split": "val"
+    },
+    {
+      "rel_path": "Corn_(maize)___Common_rust_/leaf_011.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Common_rust_\\leaf_011.jpg",
+      "class_name": "Corn_(maize)___Common_rust_",
+      "class_idx": 1,
+      "sha256": "d1d28b1027385c51938aa676a56507a78f90f55b5ea275f59ebfa373fd8f83da",
+      "dhash": 5526604390290502156,
+      "split": "test"
+    },
+    {
+      "rel_path": "Corn_(maize)___Northern_Leaf_Blight/leaf_000.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Northern_Leaf_Blight\\leaf_000.jpg",
+      "class_name": "Corn_(maize)___Northern_Leaf_Blight",
+      "class_idx": 2,
+      "sha256": "5ff2ba65560bd67a13b7e220c1d8fb770ba38b6e86eace1a530ffa532515a49c",
+      "dhash": 13146545904572527244,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Northern_Leaf_Blight/leaf_000_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Northern_Leaf_Blight\\leaf_000_near_dup.jpg",
+      "class_name": "Corn_(maize)___Northern_Leaf_Blight",
+      "class_idx": 2,
+      "sha256": "5fc37e95619b7fe38484ec0c3b49b23d097f4e7c6bf8e84e89c7f2dcdb9968a0",
+      "dhash": 13146545904572527244,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Northern_Leaf_Blight/leaf_001.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Northern_Leaf_Blight\\leaf_001.jpg",
+      "class_name": "Corn_(maize)___Northern_Leaf_Blight",
+      "class_idx": 2,
+      "sha256": "5b157289ada191378e462557a092c48558912d62fab27614eb7fa87f1f4df2a3",
+      "dhash": 10696447055744283212,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Northern_Leaf_Blight/leaf_001_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Northern_Leaf_Blight\\leaf_001_near_dup.jpg",
+      "class_name": "Corn_(maize)___Northern_Leaf_Blight",
+      "class_idx": 2,
+      "sha256": "3c59e740699e3875175525051b6c0b2449be7987c93aa686dc87187bc8ab725e",
+      "dhash": 10696447055744283212,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Northern_Leaf_Blight/leaf_002.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Northern_Leaf_Blight\\leaf_002.jpg",
+      "class_name": "Corn_(maize)___Northern_Leaf_Blight",
+      "class_idx": 2,
+      "sha256": "5c6e47d91fc9cf9930683b3b5a98d91593f3b95ffff5c609bf126c9d999281f2",
+      "dhash": 5526885878202921238,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Northern_Leaf_Blight/leaf_003.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Northern_Leaf_Blight\\leaf_003.jpg",
+      "class_name": "Corn_(maize)___Northern_Leaf_Blight",
+      "class_idx": 2,
+      "sha256": "3bb715b3061e5c11773a98ddece0cc9eec10deb9411a78b43ca1416f8870d4a4",
+      "dhash": 878880778751144460,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Northern_Leaf_Blight/leaf_004.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Northern_Leaf_Blight\\leaf_004.jpg",
+      "class_name": "Corn_(maize)___Northern_Leaf_Blight",
+      "class_idx": 2,
+      "sha256": "15703646fc016b94a0f65066af5007db2e887ba0f0d08d362729c4b2ab1d9c3f",
+      "dhash": 5670446895172006476,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Northern_Leaf_Blight/leaf_005.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Northern_Leaf_Blight\\leaf_005.jpg",
+      "class_name": "Corn_(maize)___Northern_Leaf_Blight",
+      "class_idx": 2,
+      "sha256": "832efd7a9d6e449aed37edad1a1d5d67ec6937ee7b09e7fc486229e16e423fe8",
+      "dhash": 5526604390291026452,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Northern_Leaf_Blight/leaf_006.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Northern_Leaf_Blight\\leaf_006.jpg",
+      "class_name": "Corn_(maize)___Northern_Leaf_Blight",
+      "class_idx": 2,
+      "sha256": "7243caebf84bcda7a480136c261e181daf661c414cd5daea45875751e16499ce",
+      "dhash": 1617188968404726604,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Northern_Leaf_Blight/leaf_007.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Northern_Leaf_Blight\\leaf_007.jpg",
+      "class_name": "Corn_(maize)___Northern_Leaf_Blight",
+      "class_idx": 2,
+      "sha256": "a53957cd81cfa4bb42a22af67cbf9b8ac3a7746e1c8665e8cc436085988b94b9",
+      "dhash": 896895586876338764,
+      "split": "val"
+    },
+    {
+      "rel_path": "Corn_(maize)___Northern_Leaf_Blight/leaf_008.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Northern_Leaf_Blight\\leaf_008.jpg",
+      "class_name": "Corn_(maize)___Northern_Leaf_Blight",
+      "class_idx": 2,
+      "sha256": "394549eb62e73e5273f9bbdae7bb1a7d4d7b8aac86266e8c1f9b7a02c8212f62",
+      "dhash": 5526604403227341644,
+      "split": "test"
+    },
+    {
+      "rel_path": "Corn_(maize)___Northern_Leaf_Blight/leaf_009.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Northern_Leaf_Blight\\leaf_009.jpg",
+      "class_name": "Corn_(maize)___Northern_Leaf_Blight",
+      "class_idx": 2,
+      "sha256": "d93d972833ea0ea669dbbee5646e3f8d0720a858a13de19f27321431b8861f9a",
+      "dhash": 878872532415002184,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___Northern_Leaf_Blight/leaf_010.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Northern_Leaf_Blight\\leaf_010.jpg",
+      "class_name": "Corn_(maize)___Northern_Leaf_Blight",
+      "class_idx": 2,
+      "sha256": "5a8a29c8ae4939ed56595a402707ee6ed997b17b16720a2e951c2d8b48be414b",
+      "dhash": 4949853366918951500,
+      "split": "val"
+    },
+    {
+      "rel_path": "Corn_(maize)___Northern_Leaf_Blight/leaf_011.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___Northern_Leaf_Blight\\leaf_011.jpg",
+      "class_name": "Corn_(maize)___Northern_Leaf_Blight",
+      "class_idx": 2,
+      "sha256": "a046725d079e0e48b002cab963b64df88fae98ff763c909e0336f842389704ec",
+      "dhash": 5490575593271538188,
+      "split": "test"
+    },
+    {
+      "rel_path": "Corn_(maize)___healthy/leaf_000.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___healthy\\leaf_000.jpg",
+      "class_name": "Corn_(maize)___healthy",
+      "class_idx": 3,
+      "sha256": "6cdf32b74539e544f5ecabab7b1f169e2fe499fa35cace6971b7694ac4f11c22",
+      "dhash": 13146545904572002956,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___healthy/leaf_000_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___healthy\\leaf_000_near_dup.jpg",
+      "class_name": "Corn_(maize)___healthy",
+      "class_idx": 3,
+      "sha256": "79eaabc7f5e6a4263356bad0bf89fb4530743fda06205781cd576b9423fb9cf5",
+      "dhash": 13146545904572002956,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___healthy/leaf_001.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___healthy\\leaf_001.jpg",
+      "class_name": "Corn_(maize)___healthy",
+      "class_idx": 3,
+      "sha256": "92db91e0d3e48b2bd201e9b75633fb71d3d0cdda5a4c383d6fd6efa6645097d2",
+      "dhash": 302139116242940492,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___healthy/leaf_001_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___healthy\\leaf_001_near_dup.jpg",
+      "class_name": "Corn_(maize)___healthy",
+      "class_idx": 3,
+      "sha256": "07fb3c75ccf197b4b1dea02ee2d865d6a7034ce4a4245cb3640b0c9d0aa255a2",
+      "dhash": 302139116242940492,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___healthy/leaf_002.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___healthy\\leaf_002.jpg",
+      "class_name": "Corn_(maize)___healthy",
+      "class_idx": 3,
+      "sha256": "e97f61677abc9d532cd443f6ec5d1f001994e14ebc1ac5fd12e425940e977b83",
+      "dhash": 5526885878203986254,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___healthy/leaf_003.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___healthy\\leaf_003.jpg",
+      "class_name": "Corn_(maize)___healthy",
+      "class_idx": 3,
+      "sha256": "2df5e1793684ae5875ee9fd1c2a41d24bf10dadf2492bbd6945927604600f860",
+      "dhash": 878880778752209484,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___healthy/leaf_004.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___healthy\\leaf_004.jpg",
+      "class_name": "Corn_(maize)___healthy",
+      "class_idx": 3,
+      "sha256": "23ffe924334f7a2d4a3b5b28784ddf971589b29a7dc93d4c9ada3271761842ea",
+      "dhash": 5526604385979830860,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___healthy/leaf_005.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___healthy\\leaf_005.jpg",
+      "class_name": "Corn_(maize)___healthy",
+      "class_idx": 3,
+      "sha256": "5fcf75386cce71192ce4569f3c1af3e1e1efe4ca3509da8774f2365ad7b5dfe2",
+      "dhash": 5526604390291026452,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___healthy/leaf_006.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___healthy\\leaf_006.jpg",
+      "class_name": "Corn_(maize)___healthy",
+      "class_idx": 3,
+      "sha256": "23c3a746aa9127ee0e9118d72b7e04bd3b04f1eb2686551b1b2299bd4a492891",
+      "dhash": 1617189071484465996,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___healthy/leaf_007.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___healthy\\leaf_007.jpg",
+      "class_name": "Corn_(maize)___healthy",
+      "class_idx": 3,
+      "sha256": "d7c555f5101310dd937af26fc4668d85136ac12fe9795f40f8411463a2c7fe9d",
+      "dhash": 896895586876338764,
+      "split": "val"
+    },
+    {
+      "rel_path": "Corn_(maize)___healthy/leaf_008.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___healthy\\leaf_008.jpg",
+      "class_name": "Corn_(maize)___healthy",
+      "class_idx": 3,
+      "sha256": "5349dc9af44706f38e23ba261917bdb153d771c5c7b058082cf40653ed1d8e59",
+      "dhash": 5526604386047472460,
+      "split": "test"
+    },
+    {
+      "rel_path": "Corn_(maize)___healthy/leaf_009.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___healthy\\leaf_009.jpg",
+      "class_name": "Corn_(maize)___healthy",
+      "class_idx": 3,
+      "sha256": "60748468f1826bc995c8ad4aebd8d530a158c0c87e67db36e1a2459ec0b08e27",
+      "dhash": 878872532415002184,
+      "split": "train"
+    },
+    {
+      "rel_path": "Corn_(maize)___healthy/leaf_010.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___healthy\\leaf_010.jpg",
+      "class_name": "Corn_(maize)___healthy",
+      "class_idx": 3,
+      "sha256": "6369f50312ee3c1cc1cc1d9db6cd00c912f757513d4d6283d710b33416392158",
+      "dhash": 4949853366918951500,
+      "split": "val"
+    },
+    {
+      "rel_path": "Corn_(maize)___healthy/leaf_011.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Corn_(maize)___healthy\\leaf_011.jpg",
+      "class_name": "Corn_(maize)___healthy",
+      "class_idx": 3,
+      "sha256": "9992356888036a7a4887779f054063815e31c6db6ddd950cef00b13e7436dcee",
+      "dhash": 5490575593271538188,
+      "split": "test"
+    },
+    {
+      "rel_path": "Potato___Early_blight/leaf_000.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___Early_blight\\leaf_000.jpg",
+      "class_name": "Potato___Early_blight",
+      "class_idx": 4,
+      "sha256": "f1425d432089987e5e10ed2c9c567fa03edcc8b1aee10cce1d6417628d9259cd",
+      "dhash": 13146545904580917638,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___Early_blight/leaf_000_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___Early_blight\\leaf_000_near_dup.jpg",
+      "class_name": "Potato___Early_blight",
+      "class_idx": 4,
+      "sha256": "7332d06093f73bd0d3bd889b53b94c3059a635239530457eebd112f30533f195",
+      "dhash": 13146545904580917638,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___Early_blight/leaf_001.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___Early_blight\\leaf_001.jpg",
+      "class_name": "Potato___Early_blight",
+      "class_idx": 4,
+      "sha256": "130e2cbbb8d12a59ca9b8a678001705aaa23a397b68da4e303cbbfbc14bd9e44",
+      "dhash": 302130285723071052,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___Early_blight/leaf_001_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___Early_blight\\leaf_001_near_dup.jpg",
+      "class_name": "Potato___Early_blight",
+      "class_idx": 4,
+      "sha256": "678415af206a0fc8361f4c821b67a54f54de7ab262ea55ddffd0bf0626ff9846",
+      "dhash": 302130285722546764,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___Early_blight/leaf_002.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___Early_blight\\leaf_002.jpg",
+      "class_name": "Potato___Early_blight",
+      "class_idx": 4,
+      "sha256": "5616d6194f1d40a0e4c9fc308800b5012b927f84d3c2b1d25345ffbef388d784",
+      "dhash": 5526894657050030414,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___Early_blight/leaf_003.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___Early_blight\\leaf_003.jpg",
+      "class_name": "Potato___Early_blight",
+      "class_idx": 4,
+      "sha256": "e158ab6396bb315178357dcf906a878ade5a03a28b804f49290e2b4637d9f992",
+      "dhash": 878880778752736578,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___Early_blight/leaf_004.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___Early_blight\\leaf_004.jpg",
+      "class_name": "Potato___Early_blight",
+      "class_idx": 4,
+      "sha256": "13a3cc2c27e46667ecf97e399d1a280dd30d93c701323eff603eee4e9cbb3800",
+      "dhash": 5240344300305363492,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___Early_blight/leaf_005.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___Early_blight\\leaf_005.jpg",
+      "class_name": "Potato___Early_blight",
+      "class_idx": 4,
+      "sha256": "688176c566de5d5391d6d89317c1162d685eb834215601ecfa40f66ecf0ce890",
+      "dhash": 5526586798104983838,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___Early_blight/leaf_006.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___Early_blight\\leaf_006.jpg",
+      "class_name": "Potato___Early_blight",
+      "class_idx": 4,
+      "sha256": "4d948c21bff13c830662ab7ba91a27df68e77cba9b4bb88758714436cde5d079",
+      "dhash": 1619440871162360652,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___Early_blight/leaf_007.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___Early_blight\\leaf_007.jpg",
+      "class_name": "Potato___Early_blight",
+      "class_idx": 4,
+      "sha256": "2231f78d7068342717faf16bce53a51b789e83d554debc84e01f73773b4f7459",
+      "dhash": 5504078005677404748,
+      "split": "val"
+    },
+    {
+      "rel_path": "Potato___Early_blight/leaf_008.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___Early_blight\\leaf_008.jpg",
+      "class_name": "Potato___Early_blight",
+      "class_idx": 4,
+      "sha256": "08748abc16e2135a42d75dc6ce0f49ec1d6fcb7d478dd5ee534ae3b84179ff7b",
+      "dhash": 5096237977042531148,
+      "split": "test"
+    },
+    {
+      "rel_path": "Potato___Early_blight/leaf_009.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___Early_blight\\leaf_009.jpg",
+      "class_name": "Potato___Early_blight",
+      "class_idx": 4,
+      "sha256": "5272e354aaa7cd4f673a61d0aa9fe422fce14d19e71756fbc4ee25b9fee213e7",
+      "dhash": 6429277666891904584,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___Early_blight/leaf_010.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___Early_blight\\leaf_010.jpg",
+      "class_name": "Potato___Early_blight",
+      "class_idx": 4,
+      "sha256": "b6d49720f6440cd2807794757677e3e4262bad22ec12c36e2714a591365bec7f",
+      "dhash": 5526314119221310108,
+      "split": "val"
+    },
+    {
+      "rel_path": "Potato___Early_blight/leaf_011.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___Early_blight\\leaf_011.jpg",
+      "class_name": "Potato___Early_blight",
+      "class_idx": 4,
+      "sha256": "246031d7710fbecf175f4c281bc238e242f3ea280f91b2050960357b1d71b7ed",
+      "dhash": 5526604356066030098,
+      "split": "test"
+    },
+    {
+      "rel_path": "Potato___Late_blight/leaf_000.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___Late_blight\\leaf_000.jpg",
+      "class_name": "Potato___Late_blight",
+      "class_idx": 5,
+      "sha256": "b7a26303e9c533e8b708c9da22763f53b687b91021b7fae3c351649951c56360",
+      "dhash": 13142024695587087004,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___Late_blight/leaf_000_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___Late_blight\\leaf_000_near_dup.jpg",
+      "class_name": "Potato___Late_blight",
+      "class_idx": 5,
+      "sha256": "a7f062e342801ac0d9d16983fc5c5a29b4b005cdd1510c62263f102f44c756d2",
+      "dhash": 13142024695587087004,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___Late_blight/leaf_001.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___Late_blight\\leaf_001.jpg",
+      "class_name": "Potato___Late_blight",
+      "class_idx": 5,
+      "sha256": "fa77466c64e34a2c99374cb494cfbbf0073973a33c3ba959b8296d12df84fedf",
+      "dhash": 896614249607553692,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___Late_blight/leaf_001_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___Late_blight\\leaf_001_near_dup.jpg",
+      "class_name": "Potato___Late_blight",
+      "class_idx": 5,
+      "sha256": "67e92569276d255e13677ac3e0fea99281c6c36dcd6e6aa28be05c2d9e8f2fd3",
+      "dhash": 896614249607553692,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___Late_blight/leaf_002.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___Late_blight\\leaf_002.jpg",
+      "class_name": "Potato___Late_blight",
+      "class_idx": 5,
+      "sha256": "d8f0df010c7cdae5ebfa8ff657c3b33230c39653d6c3e6f44de465bce29e3d0e",
+      "dhash": 5526885861023068486,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___Late_blight/leaf_003.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___Late_blight\\leaf_003.jpg",
+      "class_name": "Potato___Late_blight",
+      "class_idx": 5,
+      "sha256": "fd55d4071e95b33fcad2670534bb21f0567171a74c8221d141028a5995f903fc",
+      "dhash": 878880778752209484,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___Late_blight/leaf_004.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___Late_blight\\leaf_004.jpg",
+      "class_name": "Potato___Late_blight",
+      "class_idx": 5,
+      "sha256": "337e6e3f3e77eda0bdb7076c1fa2ebef8f1503b2c32882c9dbfb407bf8b6917e",
+      "dhash": 5526604385979830860,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___Late_blight/leaf_005.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___Late_blight\\leaf_005.jpg",
+      "class_name": "Potato___Late_blight",
+      "class_idx": 5,
+      "sha256": "a0510710ad2c3d6f25582736307b05edc6dd850f6592415e2c7a0265b47d1b1d",
+      "dhash": 5526604390291026198,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___Late_blight/leaf_006.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___Late_blight\\leaf_006.jpg",
+      "class_name": "Potato___Late_blight",
+      "class_idx": 5,
+      "sha256": "d897ba5cb935e4f698549ec20150a4c34034ec001c250e22af5eec37a76d4a1f",
+      "dhash": 1907671283957085004,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___Late_blight/leaf_007.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___Late_blight\\leaf_007.jpg",
+      "class_name": "Potato___Late_blight",
+      "class_idx": 5,
+      "sha256": "651e3aafe29293330116124700bf1be90bbad89789068ae92c61357863e24898",
+      "dhash": 896895656133210700,
+      "split": "val"
+    },
+    {
+      "rel_path": "Potato___Late_blight/leaf_008.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___Late_blight\\leaf_008.jpg",
+      "class_name": "Potato___Late_blight",
+      "class_idx": 5,
+      "sha256": "99483ce516a7aae0f9b7c008979973d42067c847b3f4e197bcbfcf5dc70b2ecf",
+      "dhash": 5526604386047472460,
+      "split": "test"
+    },
+    {
+      "rel_path": "Potato___Late_blight/leaf_009.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___Late_blight\\leaf_009.jpg",
+      "class_name": "Potato___Late_blight",
+      "class_idx": 5,
+      "sha256": "363f37bbc7b64d1312c779306b2a5e8f0b4587b6d6ab71f497d11c689effb5a5",
+      "dhash": 878872532415002184,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___Late_blight/leaf_010.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___Late_blight\\leaf_010.jpg",
+      "class_name": "Potato___Late_blight",
+      "class_idx": 5,
+      "sha256": "2e58560a45beaae50ea7a96fd5537bdd2afff7ff710e74144c26fa48ea1dfbaf",
+      "dhash": 1617189677024522828,
+      "split": "val"
+    },
+    {
+      "rel_path": "Potato___Late_blight/leaf_011.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___Late_blight\\leaf_011.jpg",
+      "class_name": "Potato___Late_blight",
+      "class_idx": 5,
+      "sha256": "086d0cb38361f80200b966adb32ea9985cb6350a063b37638f72be57702d2b10",
+      "dhash": 5490575593272586780,
+      "split": "test"
+    },
+    {
+      "rel_path": "Potato___healthy/leaf_000.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___healthy\\leaf_000.jpg",
+      "class_name": "Potato___healthy",
+      "class_idx": 6,
+      "sha256": "90dbd4441e69ec992289df1437b7e4d05ff3670fd4cf25916f9752316b03dec6",
+      "dhash": 13146545904572002956,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___healthy/leaf_000_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___healthy\\leaf_000_near_dup.jpg",
+      "class_name": "Potato___healthy",
+      "class_idx": 6,
+      "sha256": "55d8128955d9227bda1cf8e10a4dc2fa7904aa9c07c587f2908fb50ac039e40e",
+      "dhash": 13146545904580391564,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___healthy/leaf_001.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___healthy\\leaf_001.jpg",
+      "class_name": "Potato___healthy",
+      "class_idx": 6,
+      "sha256": "3c861f3a2fac08d0cde136c2abaa36a5f8855d6be6cdb2c858c057ccce305fad",
+      "dhash": 302139116242940492,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___healthy/leaf_001_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___healthy\\leaf_001_near_dup.jpg",
+      "class_name": "Potato___healthy",
+      "class_idx": 6,
+      "sha256": "9cd32c3cdcc732068b7deb3a08aa573fee21761a173a1f80e5be983543f85995",
+      "dhash": 878599868546363980,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___healthy/leaf_002.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___healthy\\leaf_002.jpg",
+      "class_name": "Potato___healthy",
+      "class_idx": 6,
+      "sha256": "40fd8fba244af6bb520ea6da4f17c3b05046bc34893b49cd10d3d1cc678a6b9d",
+      "dhash": 5526894674297008462,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___healthy/leaf_003.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___healthy\\leaf_003.jpg",
+      "class_name": "Potato___healthy",
+      "class_idx": 6,
+      "sha256": "3dd1962545113fe81ae7b1a1d651e85db55eb74c8f0f0222819891934033fed0",
+      "dhash": 878880778752209484,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___healthy/leaf_004.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___healthy\\leaf_004.jpg",
+      "class_name": "Potato___healthy",
+      "class_idx": 6,
+      "sha256": "2ce4a917277478d4ebcc6e6d6d0c523856b2c65a07be353f0fa115fe4a8ea26a",
+      "dhash": 5526604385979839052,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___healthy/leaf_005.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___healthy\\leaf_005.jpg",
+      "class_name": "Potato___healthy",
+      "class_idx": 6,
+      "sha256": "be7ffe4833f0661b4f8d2dbb955edd06106f69958e2098389de2f3b9fe43c72c",
+      "dhash": 5526604390291026452,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___healthy/leaf_006.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___healthy\\leaf_006.jpg",
+      "class_name": "Potato___healthy",
+      "class_idx": 6,
+      "sha256": "5cad26c24dbe3497fcb6ffd326bee8fce827a3a40de8f5a18bac76354e68af0b",
+      "dhash": 1617189071484465996,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___healthy/leaf_007.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___healthy\\leaf_007.jpg",
+      "class_name": "Potato___healthy",
+      "class_idx": 6,
+      "sha256": "eea054d75790e7755b5af2d3e3f16cb74bd4ccb66bae4d7c635bd6840ce077f5",
+      "dhash": 10120267623731114572,
+      "split": "val"
+    },
+    {
+      "rel_path": "Potato___healthy/leaf_008.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___healthy\\leaf_008.jpg",
+      "class_name": "Potato___healthy",
+      "class_idx": 6,
+      "sha256": "c57c66bf2a1417e4d398e0143b437691130609417b7a7982ab4c4b8844ba035d",
+      "dhash": 5526604386047472460,
+      "split": "test"
+    },
+    {
+      "rel_path": "Potato___healthy/leaf_009.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___healthy\\leaf_009.jpg",
+      "class_name": "Potato___healthy",
+      "class_idx": 6,
+      "sha256": "5fe9023cc12ec5ae40914df6ff218e55e733693c876c54e41a0419f4b92c9737",
+      "dhash": 878872532415002184,
+      "split": "train"
+    },
+    {
+      "rel_path": "Potato___healthy/leaf_010.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___healthy\\leaf_010.jpg",
+      "class_name": "Potato___healthy",
+      "class_idx": 6,
+      "sha256": "57304b9fcda2fa3bff396747e0b825d63dbd3d6d9e7bdc495528631287132e9c",
+      "dhash": 5093968554994807372,
+      "split": "val"
+    },
+    {
+      "rel_path": "Potato___healthy/leaf_011.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Potato___healthy\\leaf_011.jpg",
+      "class_name": "Potato___healthy",
+      "class_idx": 6,
+      "sha256": "1e29d0f778c45865b496f76ed1a287de6ceb280eaadfa635f39fc81a20cabfe3",
+      "dhash": 5526604390290502156,
+      "split": "test"
+    },
+    {
+      "rel_path": "Tomato___Bacterial_spot/leaf_000.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Bacterial_spot\\leaf_000.jpg",
+      "class_name": "Tomato___Bacterial_spot",
+      "class_idx": 7,
+      "sha256": "c0171dcf427d17be6098623d7335b1594b182ecba0cdae2bebe37b1806b75e03",
+      "dhash": 13146545904580391564,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Bacterial_spot/leaf_000_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Bacterial_spot\\leaf_000_near_dup.jpg",
+      "class_name": "Tomato___Bacterial_spot",
+      "class_idx": 7,
+      "sha256": "991209b907f64ceffc630d135279c37620e675eacb19563221a135ceddc63aa0",
+      "dhash": 13146545904580391564,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Bacterial_spot/leaf_001.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Bacterial_spot\\leaf_001.jpg",
+      "class_name": "Tomato___Bacterial_spot",
+      "class_idx": 7,
+      "sha256": "a9abe3dd14523d186e377af2426dd0d3ed8301728ee889ed9f2c668a280739e5",
+      "dhash": 9543525414236418572,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Bacterial_spot/leaf_001_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Bacterial_spot\\leaf_001_near_dup.jpg",
+      "class_name": "Tomato___Bacterial_spot",
+      "class_idx": 7,
+      "sha256": "35049c4f6da15c2ae2bcb48091f14e813b4224805b2d0a48094e3b4d8613a9ff",
+      "dhash": 10119986166539842060,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Bacterial_spot/leaf_002.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Bacterial_spot\\leaf_002.jpg",
+      "class_name": "Tomato___Bacterial_spot",
+      "class_idx": 7,
+      "sha256": "70369ea77c96a4e5c0c7bf0ae6b125085d9c76e522b2b11ee51e17873935da9a",
+      "dhash": 5526894674297008454,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Bacterial_spot/leaf_003.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Bacterial_spot\\leaf_003.jpg",
+      "class_name": "Tomato___Bacterial_spot",
+      "class_idx": 7,
+      "sha256": "17aa054c7576284a91a871325bb91faf905b9112ed1a7e514d6940aad6abc4f5",
+      "dhash": 6085041947992503628,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Bacterial_spot/leaf_004.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Bacterial_spot\\leaf_004.jpg",
+      "class_name": "Tomato___Bacterial_spot",
+      "class_idx": 7,
+      "sha256": "6045b42216ba909a07957a076b2b5047cf86f8e11d9b6b7604a9814b656ac96e",
+      "dhash": 5526604385979824390,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Bacterial_spot/leaf_005.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Bacterial_spot\\leaf_005.jpg",
+      "class_name": "Tomato___Bacterial_spot",
+      "class_idx": 7,
+      "sha256": "af2bafdb53d1b888e0419977bc33e6e5106da9fcc8bf3c2677eff340aa02af6f",
+      "dhash": 5508589991781560852,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Bacterial_spot/leaf_006.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Bacterial_spot\\leaf_006.jpg",
+      "class_name": "Tomato___Bacterial_spot",
+      "class_idx": 7,
+      "sha256": "77c9818ed6239b9315c259e4e2870bce70c7e440e38022c49d8efcc6a68a1975",
+      "dhash": 1617189107991654670,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Bacterial_spot/leaf_007.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Bacterial_spot\\leaf_007.jpg",
+      "class_name": "Tomato___Bacterial_spot",
+      "class_idx": 7,
+      "sha256": "4a28229ec1658129085c83af7e74a82c31300de795c3e59fda97183e4e3086b7",
+      "dhash": 10119986148754420236,
+      "split": "val"
+    },
+    {
+      "rel_path": "Tomato___Bacterial_spot/leaf_008.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Bacterial_spot\\leaf_008.jpg",
+      "class_name": "Tomato___Bacterial_spot",
+      "class_idx": 7,
+      "sha256": "e81887437adb99bf2a4ca160f5e87f9a39bbd3b26802a4255e483c53e5962026",
+      "dhash": 5526604386047456076,
+      "split": "test"
+    },
+    {
+      "rel_path": "Tomato___Bacterial_spot/leaf_009.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Bacterial_spot\\leaf_009.jpg",
+      "class_name": "Tomato___Bacterial_spot",
+      "class_idx": 7,
+      "sha256": "e259dcc5648ec85952a8b21419d2ccb3d75ff7ce0ea2d7ce921d8fc21c112faf",
+      "dhash": 878872532414965256,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Bacterial_spot/leaf_010.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Bacterial_spot\\leaf_010.jpg",
+      "class_name": "Tomato___Bacterial_spot",
+      "class_idx": 7,
+      "sha256": "cc5893a583058d0b7e2abb12491cb51d79b73a583c34f91ca2fda4ad39c5eba8",
+      "dhash": 5093968554994807372,
+      "split": "val"
+    },
+    {
+      "rel_path": "Tomato___Bacterial_spot/leaf_011.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Bacterial_spot\\leaf_011.jpg",
+      "class_name": "Tomato___Bacterial_spot",
+      "class_idx": 7,
+      "sha256": "1ffa892ce6c3b7752c1c335f84d9371f6d6293aefc19042d42dce470b5fdd049",
+      "dhash": 5634409306370683148,
+      "split": "test"
+    },
+    {
+      "rel_path": "Tomato___Early_blight/leaf_000.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Early_blight\\leaf_000.jpg",
+      "class_name": "Tomato___Early_blight",
+      "class_idx": 8,
+      "sha256": "f503bbfb232383ef1a34f206542aa46959e97f19556510e3c3b4318ef4fb1592",
+      "dhash": 13146563531126700422,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Early_blight/leaf_000_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Early_blight\\leaf_000_near_dup.jpg",
+      "class_name": "Tomato___Early_blight",
+      "class_idx": 8,
+      "sha256": "0b5b1f9d4d718bfb9a88b48fb61ddbbc718509807b6672d4ad53396c6b82d1ea",
+      "dhash": 13146563531126700422,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Early_blight/leaf_001.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Early_blight\\leaf_001.jpg",
+      "class_name": "Tomato___Early_blight",
+      "class_idx": 8,
+      "sha256": "ac18039cd7357ac2ea75fe96f6d5f38644a80b922ebc75623aa229c7779f83f3",
+      "dhash": 878599851635980621,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Early_blight/leaf_001_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Early_blight\\leaf_001_near_dup.jpg",
+      "class_name": "Tomato___Early_blight",
+      "class_idx": 8,
+      "sha256": "9304885de0e5aadf95462517f82ea459551e8ac9997393af5a4037d9a50e5ad6",
+      "dhash": 878599851635980621,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Early_blight/leaf_002.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Early_blight\\leaf_002.jpg",
+      "class_name": "Tomato___Early_blight",
+      "class_idx": 8,
+      "sha256": "5893a4f29b61a524bb566a229e6802cef2f202796ea062f43aec47164ee3ea0f",
+      "dhash": 446253752349473094,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Early_blight/leaf_003.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Early_blight\\leaf_003.jpg",
+      "class_name": "Tomato___Early_blight",
+      "class_idx": 8,
+      "sha256": "807467535612e0def70cbee5674c46bccc7cf2083a856a7c42420bf1556d70a8",
+      "dhash": 2621765038451569228,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Early_blight/leaf_004.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Early_blight\\leaf_004.jpg",
+      "class_name": "Tomato___Early_blight",
+      "class_idx": 8,
+      "sha256": "511390be1fb71e1001401d5e0c2943f54a415c428cf2a196a603b8960188e42c",
+      "dhash": 3198225786439053908,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Early_blight/leaf_005.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Early_blight\\leaf_005.jpg",
+      "class_name": "Tomato___Early_blight",
+      "class_idx": 8,
+      "sha256": "bb758c75ef3f0f7640ddf3d437d305d9ef4bd4ce59a01e119bb9e7fd69cae776",
+      "dhash": 5672698699565871644,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Early_blight/leaf_006.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Early_blight\\leaf_006.jpg",
+      "class_name": "Tomato___Early_blight",
+      "class_idx": 8,
+      "sha256": "133aeceffa29488bfb2c02837af32658e8b659394f20c091a894b300805efdc4",
+      "dhash": 1617189123091182412,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Early_blight/leaf_007.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Early_blight\\leaf_007.jpg",
+      "class_name": "Tomato___Early_blight",
+      "class_idx": 8,
+      "sha256": "4a73a15d646e85298109029cfa541525251178d5f86e5ec9f57adf4afd742a3e",
+      "dhash": 896895690358207052,
+      "split": "val"
+    },
+    {
+      "rel_path": "Tomato___Early_blight/leaf_008.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Early_blight\\leaf_008.jpg",
+      "class_name": "Tomato___Early_blight",
+      "class_idx": 8,
+      "sha256": "c98a011c47b7bb9e5742923a88be5a295a19536625ab35390249caf919b600bf",
+      "dhash": 12421597823365657420,
+      "split": "test"
+    },
+    {
+      "rel_path": "Tomato___Early_blight/leaf_009.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Early_blight\\leaf_009.jpg",
+      "class_name": "Tomato___Early_blight",
+      "class_idx": 8,
+      "sha256": "2ab982de807e6524482dea828d111eaa2b618f8a483c376688dd7bc8a180a8d3",
+      "dhash": 5922904184057869896,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Early_blight/leaf_010.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Early_blight\\leaf_010.jpg",
+      "class_name": "Tomato___Early_blight",
+      "class_idx": 8,
+      "sha256": "a27f59a82aa152c03081e192bc8c0b0cfe1a581ae04ee3af74bddde8e8a16651",
+      "dhash": 5670438103391254856,
+      "split": "val"
+    },
+    {
+      "rel_path": "Tomato___Early_blight/leaf_011.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Early_blight\\leaf_011.jpg",
+      "class_name": "Tomato___Early_blight",
+      "class_idx": 8,
+      "sha256": "231710b09ad38519e705b261ee3b024855813cc66e26e523d17883d0fe270120",
+      "dhash": 5490021439411140890,
+      "split": "test"
+    },
+    {
+      "rel_path": "Tomato___Late_blight/leaf_000.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Late_blight\\leaf_000.jpg",
+      "class_name": "Tomato___Late_blight",
+      "class_idx": 9,
+      "sha256": "561b46899eb8b8d04a9dd3b84cc00407adf58ddad6a942698c900897084b96d4",
+      "dhash": 13146545904697832076,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Late_blight/leaf_000_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Late_blight\\leaf_000_near_dup.jpg",
+      "class_name": "Tomato___Late_blight",
+      "class_idx": 9,
+      "sha256": "b3ced84eb83d89038cd69ec92df5590a42cf94645310a97cde8ec1af0c427bb5",
+      "dhash": 13146545904697832076,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Late_blight/leaf_001.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Late_blight\\leaf_001.jpg",
+      "class_name": "Tomato___Late_blight",
+      "class_idx": 9,
+      "sha256": "834975e12041d96898cfa44f2317571f6ae96d6c10126ace746d9ef246e11f30",
+      "dhash": 878599782647019849,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Late_blight/leaf_001_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Late_blight\\leaf_001_near_dup.jpg",
+      "class_name": "Tomato___Late_blight",
+      "class_idx": 9,
+      "sha256": "3080bbeeb485cf56fe378720f32c2450131bbb8668e0ca53b186ddd619ca70e9",
+      "dhash": 878599782647019849,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Late_blight/leaf_002.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Late_blight\\leaf_002.jpg",
+      "class_name": "Tomato___Late_blight",
+      "class_idx": 9,
+      "sha256": "a0d971dd6d82749b1f6aa2296e4a14883341cb332cf258c3dbef56128a6a524c",
+      "dhash": 5526885878069309766,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Late_blight/leaf_003.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Late_blight\\leaf_003.jpg",
+      "class_name": "Tomato___Late_blight",
+      "class_idx": 9,
+      "sha256": "faed531070caeec8f02fc01b9d51052469d81955d38f306420002caca1f0a7fd",
+      "dhash": 1455350327149181254,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Late_blight/leaf_004.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Late_blight\\leaf_004.jpg",
+      "class_name": "Tomato___Late_blight",
+      "class_idx": 9,
+      "sha256": "64418deb233947a379040668580aaddb198751ffc5d5f2302772cd0bdd39449b",
+      "dhash": 5526604351620092484,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Late_blight/leaf_005.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Late_blight\\leaf_005.jpg",
+      "class_name": "Tomato___Late_blight",
+      "class_idx": 9,
+      "sha256": "0aa66c5a97d918eeea5e6aea40d8802e7df0cc3d3fbb63e213b3d01b11e7dbda",
+      "dhash": 2049807885774959124,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Late_blight/leaf_006.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Late_blight\\leaf_006.jpg",
+      "class_name": "Tomato___Late_blight",
+      "class_idx": 9,
+      "sha256": "3df659a70c252aa0a4b59795c0aa1d3da3a0db00dc75834b6a56f3f965a7ce30",
+      "dhash": 1617189071416832844,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Late_blight/leaf_007.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Late_blight\\leaf_007.jpg",
+      "class_name": "Tomato___Late_blight",
+      "class_idx": 9,
+      "sha256": "78b658a4c676c329ed8ec33317f6e4bc2a7d99b50866133234068d99de7e7250",
+      "dhash": 896895587280577132,
+      "split": "val"
+    },
+    {
+      "rel_path": "Tomato___Late_blight/leaf_008.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Late_blight\\leaf_008.jpg",
+      "class_name": "Tomato___Late_blight",
+      "class_idx": 9,
+      "sha256": "35a21f07e73f3b8610337acddcec9507a8881f3fed404ee4a9e70772cf5eae25",
+      "dhash": 5526604403159163292,
+      "split": "test"
+    },
+    {
+      "rel_path": "Tomato___Late_blight/leaf_009.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Late_blight\\leaf_009.jpg",
+      "class_name": "Tomato___Late_blight",
+      "class_idx": 9,
+      "sha256": "43f5d925bf25cbc9cb712a9ed775eb3ed69fcadc6c3689e00ccd6f2d952b25ce",
+      "dhash": 878881362868279622,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Late_blight/leaf_010.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Late_blight\\leaf_010.jpg",
+      "class_name": "Tomato___Late_blight",
+      "class_idx": 9,
+      "sha256": "2d611b3b7fab8ed164cf306b89ac01152dfe5ec74139743e64d78e7d236f3d4d",
+      "dhash": 5093986147180327492,
+      "split": "val"
+    },
+    {
+      "rel_path": "Tomato___Late_blight/leaf_011.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Late_blight\\leaf_011.jpg",
+      "class_name": "Tomato___Late_blight",
+      "class_idx": 9,
+      "sha256": "87630cab6878c71221509a2165caa76427410f5ae711e1ce832a724360e13d08",
+      "dhash": 878871982793372172,
+      "split": "test"
+    },
+    {
+      "rel_path": "Tomato___Leaf_Mold/leaf_000.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Leaf_Mold\\leaf_000.jpg",
+      "class_name": "Tomato___Leaf_Mold",
+      "class_idx": 10,
+      "sha256": "86d317bb8c1431faefa3f31c12f3503d6ee812e618c50f65753e0f4fcd6850f2",
+      "dhash": 13146528312654393996,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Leaf_Mold/leaf_000_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Leaf_Mold\\leaf_000_near_dup.jpg",
+      "class_name": "Tomato___Leaf_Mold",
+      "class_idx": 10,
+      "sha256": "8bbf8d52f9368011806a100f38b5c315fe9965e61602d820b0bfb54093ea9b61",
+      "dhash": 13146528312654393996,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Leaf_Mold/leaf_001.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Leaf_Mold\\leaf_001.jpg",
+      "class_name": "Tomato___Leaf_Mold",
+      "class_idx": 10,
+      "sha256": "06eaa08e5f8c147f0e345e2c3eed1d25ec3afa1de0537bbe2db78fc3c9c38568",
+      "dhash": 1599175671486689868,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Leaf_Mold/leaf_001_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Leaf_Mold\\leaf_001_near_dup.jpg",
+      "class_name": "Tomato___Leaf_Mold",
+      "class_idx": 10,
+      "sha256": "cb11ba260b05553ff0c03c53ab183d49d3c8abbf80c4492fc2d493ed35159a29",
+      "dhash": 1599175671486689868,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Leaf_Mold/leaf_002.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Leaf_Mold\\leaf_002.jpg",
+      "class_name": "Tomato___Leaf_Mold",
+      "class_idx": 10,
+      "sha256": "458fd6f3ab6558c68a276027f920e72a4bcbd60b789985358cce608114a024d9",
+      "dhash": 5526894639802003782,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Leaf_Mold/leaf_003.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Leaf_Mold\\leaf_003.jpg",
+      "class_name": "Tomato___Leaf_Mold",
+      "class_idx": 10,
+      "sha256": "b3a21a5b0b98af025fb75f89459f71548e6fafd14bcc77e28f98b7f52e6eaa2b",
+      "dhash": 1473074454588404300,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Leaf_Mold/leaf_004.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Leaf_Mold\\leaf_004.jpg",
+      "class_name": "Tomato___Leaf_Mold",
+      "class_idx": 10,
+      "sha256": "2b298ea05c452c60d2d1fa920428dd9d172a3197848881e0cf6f375a1a3a102e",
+      "dhash": 896912765068874316,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Leaf_Mold/leaf_005.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Leaf_Mold\\leaf_005.jpg",
+      "class_name": "Tomato___Leaf_Mold",
+      "class_idx": 10,
+      "sha256": "c6dd76455ffd7409ae93bd8208267fb1675ac20a00c2ce8ceebb800a9b98289c",
+      "dhash": 5526604390290534932,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Leaf_Mold/leaf_006.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Leaf_Mold\\leaf_006.jpg",
+      "class_name": "Tomato___Leaf_Mold",
+      "class_idx": 10,
+      "sha256": "1130198e5728df5b971c3b4439d926f0cced69e6c1bdbb4bcf57491795ae799a",
+      "dhash": 10840578769243714380,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Leaf_Mold/leaf_007.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Leaf_Mold\\leaf_007.jpg",
+      "class_name": "Tomato___Leaf_Mold",
+      "class_idx": 10,
+      "sha256": "3dfbe23088e0a585c6d8706e5621b4d9263f134dbbe22cc8c21c2580a2eea634",
+      "dhash": 896895604056734046,
+      "split": "val"
+    },
+    {
+      "rel_path": "Tomato___Leaf_Mold/leaf_008.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Leaf_Mold\\leaf_008.jpg",
+      "class_name": "Tomato___Leaf_Mold",
+      "class_idx": 10,
+      "sha256": "7d9851bf31fa1c2f20549027b3bffff32315994160cff1d0b6927a3ac97887d8",
+      "dhash": 5526595607134319436,
+      "split": "test"
+    },
+    {
+      "rel_path": "Tomato___Leaf_Mold/leaf_009.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Leaf_Mold\\leaf_009.jpg",
+      "class_name": "Tomato___Leaf_Mold",
+      "class_idx": 10,
+      "sha256": "9e9a3790f426ee270a9e044f90b630851badfa9015d2cfb735f882b9774054a6",
+      "dhash": 10115781756430955084,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Leaf_Mold/leaf_010.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Leaf_Mold\\leaf_010.jpg",
+      "class_name": "Tomato___Leaf_Mold",
+      "class_idx": 10,
+      "sha256": "289e8f629d9e80f7957ed61c142e602efa37e50e2dd72c3118b77a5b665249ea",
+      "dhash": 6246890059601654348,
+      "split": "val"
+    },
+    {
+      "rel_path": "Tomato___Leaf_Mold/leaf_011.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Leaf_Mold\\leaf_011.jpg",
+      "class_name": "Tomato___Leaf_Mold",
+      "class_idx": 10,
+      "sha256": "9dfa2be21c2aa26726c2a1f5fda550e8991a4aac6f976a91600a3c0098128884",
+      "dhash": 5490558001086018076,
+      "split": "test"
+    },
+    {
+      "rel_path": "Tomato___Septoria_leaf_spot/leaf_000.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Septoria_leaf_spot\\leaf_000.jpg",
+      "class_name": "Tomato___Septoria_leaf_spot",
+      "class_idx": 11,
+      "sha256": "ce7e8ba360dc0e92bf9e51ec2cd46aabe4539b61b0d369a599114c398d43e387",
+      "dhash": 13002395532132442764,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Septoria_leaf_spot/leaf_000_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Septoria_leaf_spot\\leaf_000_near_dup.jpg",
+      "class_name": "Tomato___Septoria_leaf_spot",
+      "class_idx": 11,
+      "sha256": "74c2a8049fc21ae080d9733e57a624ea7f572391fbb813732052ce655a39871e",
+      "dhash": 13002395532132442764,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Septoria_leaf_spot/leaf_001.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Septoria_leaf_spot\\leaf_001.jpg",
+      "class_name": "Tomato___Septoria_leaf_spot",
+      "class_idx": 11,
+      "sha256": "5b62e4fa9cca2c1a3bb639e5b5aecca473f1beff717619873c9a2b28b6f3a7bd",
+      "dhash": 302139116242940492,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Septoria_leaf_spot/leaf_001_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Septoria_leaf_spot\\leaf_001_near_dup.jpg",
+      "class_name": "Tomato___Septoria_leaf_spot",
+      "class_idx": 11,
+      "sha256": "357350142e582b9858f00634a0478d304b081dcd2e0494c65a78dc7f421dfe62",
+      "dhash": 302139116242940492,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Septoria_leaf_spot/leaf_002.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Septoria_leaf_spot\\leaf_002.jpg",
+      "class_name": "Tomato___Septoria_leaf_spot",
+      "class_idx": 11,
+      "sha256": "1cf7c1d30d5a481c5def68dbb8c6025a5757d734a306222944501b5de08dabcd",
+      "dhash": 5526885878069770574,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Septoria_leaf_spot/leaf_003.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Septoria_leaf_spot\\leaf_003.jpg",
+      "class_name": "Tomato___Septoria_leaf_spot",
+      "class_idx": 11,
+      "sha256": "7e5b923eafc8344d365cc64fca908638d41aed1c616c01fe7de2fbd035e2dc3e",
+      "dhash": 878880778752209480,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Septoria_leaf_spot/leaf_004.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Septoria_leaf_spot\\leaf_004.jpg",
+      "class_name": "Tomato___Septoria_leaf_spot",
+      "class_idx": 11,
+      "sha256": "f724634166afb862e3d197712ee85e36e579472f3f5e40e9f558fcceec73b856",
+      "dhash": 896912765135991372,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Septoria_leaf_spot/leaf_005.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Septoria_leaf_spot\\leaf_005.jpg",
+      "class_name": "Tomato___Septoria_leaf_spot",
+      "class_idx": 11,
+      "sha256": "57718c38e1160a87b68b3f782266d7d1fcbd9fae384070e84f8fafb7976c3c23",
+      "dhash": 5670438103390171668,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Septoria_leaf_spot/leaf_006.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Septoria_leaf_spot\\leaf_006.jpg",
+      "class_name": "Tomato___Septoria_leaf_spot",
+      "class_idx": 11,
+      "sha256": "47c52f76ff8a4196ae3d9b1a5fea237665266829cdb0a3b239b75d7950a73d99",
+      "dhash": 1617189105843680076,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Septoria_leaf_spot/leaf_007.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Septoria_leaf_spot\\leaf_007.jpg",
+      "class_name": "Tomato___Septoria_leaf_spot",
+      "class_idx": 11,
+      "sha256": "11cf7a502101b5a7f006e1957cb46a707e3ed463e8806c6dc2354e96d2b222c3",
+      "dhash": 896895586876863052,
+      "split": "val"
+    },
+    {
+      "rel_path": "Tomato___Septoria_leaf_spot/leaf_008.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Septoria_leaf_spot\\leaf_008.jpg",
+      "class_name": "Tomato___Septoria_leaf_spot",
+      "class_idx": 11,
+      "sha256": "9eb341c014cd55313b6e263406d7d85458de673d92edaa0f317e098b6f079100",
+      "dhash": 5526604386046390604,
+      "split": "test"
+    },
+    {
+      "rel_path": "Tomato___Septoria_leaf_spot/leaf_009.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Septoria_leaf_spot\\leaf_009.jpg",
+      "class_name": "Tomato___Septoria_leaf_spot",
+      "class_idx": 11,
+      "sha256": "d32bc063795039dcef6b1e2579053878dc3239223358023f3d5604c3e600b187",
+      "dhash": 878599853531313480,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Septoria_leaf_spot/leaf_010.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Septoria_leaf_spot\\leaf_010.jpg",
+      "class_name": "Tomato___Septoria_leaf_spot",
+      "class_idx": 11,
+      "sha256": "cca91a65e9f1898f7c7b1fd81d95c9a4d5a66119bd4c0a793afc6e3f8aed14fe",
+      "dhash": 6823350811905061388,
+      "split": "val"
+    },
+    {
+      "rel_path": "Tomato___Septoria_leaf_spot/leaf_011.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Septoria_leaf_spot\\leaf_011.jpg",
+      "class_name": "Tomato___Septoria_leaf_spot",
+      "class_idx": 11,
+      "sha256": "cb3640df7d801f061827ecfc36c60134f5e20056153bfba63af68795760ebe5a",
+      "dhash": 5526604390290518540,
+      "split": "test"
+    },
+    {
+      "rel_path": "Tomato___Spider_mites Two-spotted_spider_mite/leaf_000.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Spider_mites Two-spotted_spider_mite\\leaf_000.jpg",
+      "class_name": "Tomato___Spider_mites Two-spotted_spider_mite",
+      "class_idx": 12,
+      "sha256": "a3edbe88395a9eebb0fd63865da78c89219e821f704c8e601159a6b915fb34b7",
+      "dhash": 13142024712766976652,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Spider_mites Two-spotted_spider_mite/leaf_000_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Spider_mites Two-spotted_spider_mite\\leaf_000_near_dup.jpg",
+      "class_name": "Tomato___Spider_mites Two-spotted_spider_mite",
+      "class_idx": 12,
+      "sha256": "ac5d5d17ac8375d87334725ed1b5527a6325f4e19c3e0d6df4f950a88a35cb50",
+      "dhash": 13142024712766976652,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Spider_mites Two-spotted_spider_mite/leaf_001.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Spider_mites Two-spotted_spider_mite\\leaf_001.jpg",
+      "class_name": "Tomato___Spider_mites Two-spotted_spider_mite",
+      "class_idx": 12,
+      "sha256": "faddbe4b9edb9686709f0f505f91cfa5e98334fbbf8a3cc1f0bd91239b0c3dd1",
+      "dhash": 878599851433603596,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Spider_mites Two-spotted_spider_mite/leaf_001_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Spider_mites Two-spotted_spider_mite\\leaf_001_near_dup.jpg",
+      "class_name": "Tomato___Spider_mites Two-spotted_spider_mite",
+      "class_idx": 12,
+      "sha256": "8d92ddd269da04239a27ba12a09fed3408437e77f99d465d381896a90148ffec",
+      "dhash": 878599851433603852,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Spider_mites Two-spotted_spider_mite/leaf_002.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Spider_mites Two-spotted_spider_mite\\leaf_002.jpg",
+      "class_name": "Tomato___Spider_mites Two-spotted_spider_mite",
+      "class_idx": 12,
+      "sha256": "5ef4bd7694f81401001ec53543f43bb43e336ca1d965a3bfca9bf18b3f55af6d",
+      "dhash": 5526894674297008454,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Spider_mites Two-spotted_spider_mite/leaf_003.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Spider_mites Two-spotted_spider_mite\\leaf_003.jpg",
+      "class_name": "Tomato___Spider_mites Two-spotted_spider_mite",
+      "class_idx": 12,
+      "sha256": "e1d74fafc4e881c963267ff0b25253c9912d6f564f5588a7930e30e577ece1c7",
+      "dhash": 878880778751666454,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Spider_mites Two-spotted_spider_mite/leaf_004.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Spider_mites Two-spotted_spider_mite\\leaf_004.jpg",
+      "class_name": "Tomato___Spider_mites Two-spotted_spider_mite",
+      "class_idx": 12,
+      "sha256": "11c39a8f8dbd6cad9d8c620c3723d21a6366f6f1aea7d0fc80472ddee1025822",
+      "dhash": 5526613199252722252,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Spider_mites Two-spotted_spider_mite/leaf_005.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Spider_mites Two-spotted_spider_mite\\leaf_005.jpg",
+      "class_name": "Tomato___Spider_mites Two-spotted_spider_mite",
+      "class_idx": 12,
+      "sha256": "7db0564a6ca0768231672c4d5e1ac124928947d8a143e84883d67d228e84ef2e",
+      "dhash": 3198243382941544980,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Spider_mites Two-spotted_spider_mite/leaf_006.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Spider_mites Two-spotted_spider_mite\\leaf_006.jpg",
+      "class_name": "Tomato___Spider_mites Two-spotted_spider_mite",
+      "class_idx": 12,
+      "sha256": "c2e0531fef3a16ac35624e8eaf3b6998e35ba5daaa57980c508a4f7bc3141715",
+      "dhash": 1617189071349723980,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Spider_mites Two-spotted_spider_mite/leaf_007.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Spider_mites Two-spotted_spider_mite\\leaf_007.jpg",
+      "class_name": "Tomato___Spider_mites Two-spotted_spider_mite",
+      "class_idx": 12,
+      "sha256": "ffc6aa6d2bd2a0ecf49f8b0005c77cb50ca5df27c3c3788a8c33c1a0de125c48",
+      "dhash": 896886790783316556,
+      "split": "val"
+    },
+    {
+      "rel_path": "Tomato___Spider_mites Two-spotted_spider_mite/leaf_008.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Spider_mites Two-spotted_spider_mite\\leaf_008.jpg",
+      "class_name": "Tomato___Spider_mites Two-spotted_spider_mite",
+      "class_idx": 12,
+      "sha256": "6444526ae82a6e7469b59c400dc1c911b53066082b7ea715a8198e17f7a04638",
+      "dhash": 5526604386045899596,
+      "split": "test"
+    },
+    {
+      "rel_path": "Tomato___Spider_mites Two-spotted_spider_mite/leaf_009.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Spider_mites Two-spotted_spider_mite\\leaf_009.jpg",
+      "class_name": "Tomato___Spider_mites Two-spotted_spider_mite",
+      "class_idx": 12,
+      "sha256": "2624ee0622827170a41b21e0595aa9351715b10c4eb6ff9448cfa8358f5c928f",
+      "dhash": 878872532414994762,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Spider_mites Two-spotted_spider_mite/leaf_010.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Spider_mites Two-spotted_spider_mite\\leaf_010.jpg",
+      "class_name": "Tomato___Spider_mites Two-spotted_spider_mite",
+      "class_idx": 12,
+      "sha256": "1a9e6dc3f9f5ac92fd5d3e442bf41a551c774cf3fdac7c6c9f7005761dc1deee",
+      "dhash": 5093968554993758804,
+      "split": "val"
+    },
+    {
+      "rel_path": "Tomato___Spider_mites Two-spotted_spider_mite/leaf_011.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Spider_mites Two-spotted_spider_mite\\leaf_011.jpg",
+      "class_name": "Tomato___Spider_mites Two-spotted_spider_mite",
+      "class_idx": 12,
+      "sha256": "ff14b89f597b53579e7b8eee2ae76aa3cad5edc00e3215daf3c76a5cee8bdf4b",
+      "dhash": 6501343438546481676,
+      "split": "test"
+    },
+    {
+      "rel_path": "Tomato___Target_Spot/leaf_000.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Target_Spot\\leaf_000.jpg",
+      "class_name": "Tomato___Target_Spot",
+      "class_idx": 13,
+      "sha256": "159b3d01db73e0a72cdc4d668d20011706de9409ac33e381f4aea35c00bbf9ac",
+      "dhash": 10840694099936375436,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Target_Spot/leaf_000_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Target_Spot\\leaf_000_near_dup.jpg",
+      "class_name": "Tomato___Target_Spot",
+      "class_idx": 13,
+      "sha256": "1f7020e2c9b27d70682ea0d3cbc549f61a208f15c1a56805b13af2970f4a5249",
+      "dhash": 10840694099936375436,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Target_Spot/leaf_001.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Target_Spot\\leaf_001.jpg",
+      "class_name": "Tomato___Target_Spot",
+      "class_idx": 13,
+      "sha256": "0f19b2372feffcbd879c0ee70976c3e2e0b219c44d4e98f6fb56713a1f932a93",
+      "dhash": 878599868546888268,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Target_Spot/leaf_001_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Target_Spot\\leaf_001_near_dup.jpg",
+      "class_name": "Tomato___Target_Spot",
+      "class_idx": 13,
+      "sha256": "ea5034ff6f88f9a49f50525053d4bc9084e93cbebdb6e63249ed7810c7521376",
+      "dhash": 878599868546888268,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Target_Spot/leaf_005.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Target_Spot\\leaf_005.jpg",
+      "class_name": "Tomato___Target_Spot",
+      "class_idx": 13,
+      "sha256": "0b0035db9755c4e5473dddc234aa31ae62ede2c76daea1cceb653fff033833ba",
+      "dhash": 5526604390291583500,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Target_Spot/leaf_011.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Target_Spot\\leaf_011.jpg",
+      "class_name": "Tomato___Target_Spot",
+      "class_idx": 13,
+      "sha256": "3406e1c3b3cb853b9ecacc579e657a916878ad3daa8cc825759d23ec5c3f117f",
+      "dhash": 5526604390290502156,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Target_Spot/leaf_002.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Target_Spot\\leaf_002.jpg",
+      "class_name": "Tomato___Target_Spot",
+      "class_idx": 13,
+      "sha256": "adf6a439da5ebfe4b91ed7bf9923ac0f86e55475ecb6213abe32da45dafc6c44",
+      "dhash": 5526894674364184902,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Target_Spot/leaf_003.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Target_Spot\\leaf_003.jpg",
+      "class_name": "Tomato___Target_Spot",
+      "class_idx": 13,
+      "sha256": "c6c0d7a902c6b6a30405522cef1d205b71ea0c174780d161fc4d150ddccb0c9d",
+      "dhash": 10552612778344014444,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Target_Spot/leaf_004.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Target_Spot\\leaf_004.jpg",
+      "class_name": "Tomato___Target_Spot",
+      "class_idx": 13,
+      "sha256": "2477704dc795b8217877fb5f0b77f0c705f61e7bfd2a96fa8c5d5782b12bd3c6",
+      "dhash": 5526604351485876812,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Target_Spot/leaf_006.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Target_Spot\\leaf_006.jpg",
+      "class_name": "Tomato___Target_Spot",
+      "class_idx": 13,
+      "sha256": "0208a511d661002dadfa00769538e5c10d53abe33e7991340b09c18d60a6c1bf",
+      "dhash": 1599165876747219788,
+      "split": "val"
+    },
+    {
+      "rel_path": "Tomato___Target_Spot/leaf_007.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Target_Spot\\leaf_007.jpg",
+      "class_name": "Tomato___Target_Spot",
+      "class_idx": 13,
+      "sha256": "ec0ec8594fb235bef69966b1afd602fb038de1b3454493ae35184f6fe1a6bc0d",
+      "dhash": 10115764127585612364,
+      "split": "test"
+    },
+    {
+      "rel_path": "Tomato___Target_Spot/leaf_008.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Target_Spot\\leaf_008.jpg",
+      "class_name": "Tomato___Target_Spot",
+      "class_idx": 13,
+      "sha256": "e62bed2047b54524883ae922dfc329246717dace212016f531f20bed81c30b0f",
+      "dhash": 5526604385912207689,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Target_Spot/leaf_009.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Target_Spot\\leaf_009.jpg",
+      "class_name": "Tomato___Target_Spot",
+      "class_idx": 13,
+      "sha256": "0a1fa3ef68c7667825c3898ef1553d0aa2b159f40be00dfa696867d45d45c148",
+      "dhash": 878872601268696648,
+      "split": "val"
+    },
+    {
+      "rel_path": "Tomato___Target_Spot/leaf_010.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Target_Spot\\leaf_010.jpg",
+      "class_name": "Tomato___Target_Spot",
+      "class_idx": 13,
+      "sha256": "1c691443b22c1b36c9a3c0447e2623f8f2f1b62faaebc6d01a2be2fe8538e993",
+      "dhash": 5490294118295908940,
+      "split": "test"
+    },
+    {
+      "rel_path": "Tomato___Tomato_Yellow_Leaf_Curl_Virus/leaf_000.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Tomato_Yellow_Leaf_Curl_Virus\\leaf_000.jpg",
+      "class_name": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+      "class_idx": 14,
+      "sha256": "12d9e7b266fbac9a0f287e1a6c49e3d84c6908ec832e0464b246711ab0846b96",
+      "dhash": 13146545904488112788,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Tomato_Yellow_Leaf_Curl_Virus/leaf_000_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Tomato_Yellow_Leaf_Curl_Virus\\leaf_000_near_dup.jpg",
+      "class_name": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+      "class_idx": 14,
+      "sha256": "40eaff8292499fb1c991d9923b0da24165f43e2ad93a9f53273eec272c1085f9",
+      "dhash": 13146545904496501396,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Tomato_Yellow_Leaf_Curl_Virus/leaf_001.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Tomato_Yellow_Leaf_Curl_Virus\\leaf_001.jpg",
+      "class_name": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+      "class_idx": 14,
+      "sha256": "55c93c0e30287cb6eaf6fa78ff19c6d7013267518b520477597fc1fcac79583f",
+      "dhash": 2610251483096101208,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Tomato_Yellow_Leaf_Curl_Virus/leaf_001_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Tomato_Yellow_Leaf_Curl_Virus\\leaf_001_near_dup.jpg",
+      "class_name": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+      "class_idx": 14,
+      "sha256": "64eea38b778c9f24ae60228945d2b45cc63aff039e001aa5c273dd5a4c3a8569",
+      "dhash": 2610251483096101208,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Tomato_Yellow_Leaf_Curl_Virus/leaf_002.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Tomato_Yellow_Leaf_Curl_Virus\\leaf_002.jpg",
+      "class_name": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+      "class_idx": 14,
+      "sha256": "5646663844a30c7d83355dcebfdf41ac554383ce8de80c6d14658bd579c710fe",
+      "dhash": 5526305336063537486,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Tomato_Yellow_Leaf_Curl_Virus/leaf_003.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Tomato_Yellow_Leaf_Curl_Virus\\leaf_003.jpg",
+      "class_name": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+      "class_idx": 14,
+      "sha256": "211147417e27047cb555b58a119145561def7a19fff04ec1892c332f173627e7",
+      "dhash": 2026735609089995340,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Tomato_Yellow_Leaf_Curl_Virus/leaf_004.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Tomato_Yellow_Leaf_Curl_Virus\\leaf_004.jpg",
+      "class_name": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+      "class_idx": 14,
+      "sha256": "faf3348b8da5a3c9d052203494a82e06a4e614b7c3fbba160728915281f62adb",
+      "dhash": 592638298064785996,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Tomato_Yellow_Leaf_Curl_Virus/leaf_005.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Tomato_Yellow_Leaf_Curl_Virus\\leaf_005.jpg",
+      "class_name": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+      "class_idx": 14,
+      "sha256": "b2501418e623ebf3540f7662104b21d379c211068b9238c99bd30dbd7930bcff",
+      "dhash": 5310132541284004356,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Tomato_Yellow_Leaf_Curl_Virus/leaf_006.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Tomato_Yellow_Leaf_Curl_Virus\\leaf_006.jpg",
+      "class_name": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+      "class_idx": 14,
+      "sha256": "7002fdfb410c18d6a1de550a4d4b1fd23a18d49d487014f2b39854c4aa3fa12d",
+      "dhash": 1328954194072286028,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Tomato_Yellow_Leaf_Curl_Virus/leaf_007.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Tomato_Yellow_Leaf_Curl_Virus\\leaf_007.jpg",
+      "class_name": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+      "class_idx": 14,
+      "sha256": "5b009f43acafe048c8ff84a8e3ba9e85abc3823d45d82eb0d60f3ab18fdee786",
+      "dhash": 9543771687458255436,
+      "split": "val"
+    },
+    {
+      "rel_path": "Tomato___Tomato_Yellow_Leaf_Curl_Virus/leaf_008.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Tomato_Yellow_Leaf_Curl_Virus\\leaf_008.jpg",
+      "class_name": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+      "class_idx": 14,
+      "sha256": "3147eed37e568dd03d1e8cd1707f4a16fbed86f0b835677c241010d398b7357b",
+      "dhash": 5526604454497465164,
+      "split": "test"
+    },
+    {
+      "rel_path": "Tomato___Tomato_Yellow_Leaf_Curl_Virus/leaf_009.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Tomato_Yellow_Leaf_Curl_Virus\\leaf_009.jpg",
+      "class_name": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+      "class_idx": 14,
+      "sha256": "d9bb6f9f2ad4512ac8a197e22f315938e04fc902e68c64c2839f2e06dc062d1b",
+      "dhash": 5490567226542043720,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Tomato_Yellow_Leaf_Curl_Virus/leaf_010.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Tomato_Yellow_Leaf_Curl_Virus\\leaf_010.jpg",
+      "class_name": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+      "class_idx": 14,
+      "sha256": "5c3b0fbd76f40f226f55cf8e7dcf1e399ba83f368ccfcda3fe553017b0b8ff6e",
+      "dhash": 5093968554726371892,
+      "split": "val"
+    },
+    {
+      "rel_path": "Tomato___Tomato_Yellow_Leaf_Curl_Virus/leaf_011.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Tomato_Yellow_Leaf_Curl_Virus\\leaf_011.jpg",
+      "class_name": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+      "class_idx": 14,
+      "sha256": "77ec42adffd29092696bbde1750cdbc9a8f286092b0cf8d98847cbe93a9df6c4",
+      "dhash": 6638421683485635092,
+      "split": "test"
+    },
+    {
+      "rel_path": "Tomato___Tomato_mosaic_virus/leaf_000.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Tomato_mosaic_virus\\leaf_000.jpg",
+      "class_name": "Tomato___Tomato_mosaic_virus",
+      "class_idx": 15,
+      "sha256": "3302a35f0f85f2611171cfb526124d1d4cb7d4d841c8e55a899eb09d1d24bf3e",
+      "dhash": 13146545904915411596,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Tomato_mosaic_virus/leaf_000_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Tomato_mosaic_virus\\leaf_000_near_dup.jpg",
+      "class_name": "Tomato___Tomato_mosaic_virus",
+      "class_idx": 15,
+      "sha256": "a115cce85e95940ed94aa6c373f685c25340b2d775fd594c760e43b4e731a075",
+      "dhash": 13146545904915411596,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Tomato_mosaic_virus/leaf_001.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Tomato_mosaic_virus\\leaf_001.jpg",
+      "class_name": "Tomato___Tomato_mosaic_virus",
+      "class_idx": 15,
+      "sha256": "e964fc51767016e6f355e25434f6b5851836c381ac84ae342fd3b3dbf7fc5dc5",
+      "dhash": 320135836667032140,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Tomato_mosaic_virus/leaf_001_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Tomato_mosaic_virus\\leaf_001_near_dup.jpg",
+      "class_name": "Tomato___Tomato_mosaic_virus",
+      "class_idx": 15,
+      "sha256": "648014123eefffad2553ceaeb5a88d789d94fd4cf151cc547586736bc2cef8ce",
+      "dhash": 320135836667032140,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Tomato_mosaic_virus/leaf_002.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Tomato_mosaic_virus\\leaf_002.jpg",
+      "class_name": "Tomato___Tomato_mosaic_virus",
+      "class_idx": 15,
+      "sha256": "e6fbf8d52282013803b89afde6fff361e043e82a3a2c85515711eeaf0df185b7",
+      "dhash": 5528574727526330702,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Tomato_mosaic_virus/leaf_003.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Tomato_mosaic_virus\\leaf_003.jpg",
+      "class_name": "Tomato___Tomato_mosaic_virus",
+      "class_idx": 15,
+      "sha256": "2ed52c7be0945a6cad9a84c9c78d9d38e2a0bd7725fe7e50cf3b4eeb7355c041",
+      "dhash": 878880654131049036,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Tomato_mosaic_virus/leaf_004.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Tomato_mosaic_virus\\leaf_004.jpg",
+      "class_name": "Tomato___Tomato_mosaic_virus",
+      "class_idx": 15,
+      "sha256": "ffcca3a1ac28092ef60347ce08f015d4956444c81b69fc4544eedbd98bd0b63d",
+      "dhash": 5526322911070231112,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Tomato_mosaic_virus/leaf_005.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Tomato_mosaic_virus\\leaf_005.jpg",
+      "class_name": "Tomato___Tomato_mosaic_virus",
+      "class_idx": 15,
+      "sha256": "5547742b12f1242bd03c751d7232269e7f478a146c6946c3be415a735d2af3e4",
+      "dhash": 6391277858108551448,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Tomato_mosaic_virus/leaf_006.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Tomato_mosaic_virus\\leaf_006.jpg",
+      "class_name": "Tomato___Tomato_mosaic_virus",
+      "class_idx": 15,
+      "sha256": "d60feedd5ab851299cd9b36056934dfe3333611c1eec386f91f1aa93a9a4c283",
+      "dhash": 1619414483019084620,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Tomato_mosaic_virus/leaf_007.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Tomato_mosaic_virus\\leaf_007.jpg",
+      "class_name": "Tomato___Tomato_mosaic_virus",
+      "class_idx": 15,
+      "sha256": "14fa6f5d5c12315d317917168c01751417d555063b6f57411f82ae2c689c62ae",
+      "dhash": 879039518041256014,
+      "split": "val"
+    },
+    {
+      "rel_path": "Tomato___Tomato_mosaic_virus/leaf_008.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Tomato_mosaic_virus\\leaf_008.jpg",
+      "class_name": "Tomato___Tomato_mosaic_virus",
+      "class_idx": 15,
+      "sha256": "45e1cdd8fec932d858065da1b92fe1ac3b698f63c9dd3d75c303145f97526392",
+      "dhash": 5526604385509274444,
+      "split": "test"
+    },
+    {
+      "rel_path": "Tomato___Tomato_mosaic_virus/leaf_009.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Tomato_mosaic_virus\\leaf_009.jpg",
+      "class_name": "Tomato___Tomato_mosaic_virus",
+      "class_idx": 15,
+      "sha256": "0d8bc17c15c1051569459bfc70679cd501747db5058c85a27d32cb72e4cba356",
+      "dhash": 878881259251676744,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___Tomato_mosaic_virus/leaf_010.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Tomato_mosaic_virus\\leaf_010.jpg",
+      "class_name": "Tomato___Tomato_mosaic_virus",
+      "class_idx": 15,
+      "sha256": "fd35a89e42564142b43707ed15baf7a1414b64c518516527e258adc82ff25421",
+      "dhash": 6535120435752319556,
+      "split": "val"
+    },
+    {
+      "rel_path": "Tomato___Tomato_mosaic_virus/leaf_011.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___Tomato_mosaic_virus\\leaf_011.jpg",
+      "class_name": "Tomato___Tomato_mosaic_virus",
+      "class_idx": 15,
+      "sha256": "89d76c1c2ee55d2d683d69a954c358032f45b227410a2abc30f9e9c43d341290",
+      "dhash": 7813870051041292812,
+      "split": "test"
+    },
+    {
+      "rel_path": "Tomato___healthy/leaf_000.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___healthy\\leaf_000.jpg",
+      "class_name": "Tomato___healthy",
+      "class_idx": 16,
+      "sha256": "b6bbe87c6bc6250bfcdadeb3214e160ca646b8b7fd1cbfda22484c4d276af762",
+      "dhash": 13146545904580391564,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___healthy/leaf_000_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___healthy\\leaf_000_near_dup.jpg",
+      "class_name": "Tomato___healthy",
+      "class_idx": 16,
+      "sha256": "fa74b19dbd5b11d0526ac0e6a76cdf6e86b1a9cd09b2e92dc135b4435aaf8561",
+      "dhash": 13146545904580391564,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___healthy/leaf_001.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___healthy\\leaf_001.jpg",
+      "class_name": "Tomato___healthy",
+      "class_idx": 16,
+      "sha256": "9ddd3be974d83b9e2c3a9f43e687715809d498bde4bff0942fda3e929962f57e",
+      "dhash": 878599868546363980,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___healthy/leaf_001_near_dup.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___healthy\\leaf_001_near_dup.jpg",
+      "class_name": "Tomato___healthy",
+      "class_idx": 16,
+      "sha256": "de72c9fddce70a1798c05041e5bf049b25dc7af347ffa833713b883e4043fcaa",
+      "dhash": 878599868546363980,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___healthy/leaf_002.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___healthy\\leaf_002.jpg",
+      "class_name": "Tomato___healthy",
+      "class_idx": 16,
+      "sha256": "09fc51cca9202758c20c2556393e0dbc98640866bddf0c2359194b5a20effd19",
+      "dhash": 5526894674297008454,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___healthy/leaf_003.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___healthy\\leaf_003.jpg",
+      "class_name": "Tomato___healthy",
+      "class_idx": 16,
+      "sha256": "4fc7ca368e223438070972570cd452afecdf9af38791242967ccf4449d704097",
+      "dhash": 878880778752209484,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___healthy/leaf_004.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___healthy\\leaf_004.jpg",
+      "class_name": "Tomato___healthy",
+      "class_idx": 16,
+      "sha256": "2603b856ebaecd2c67b99499eab0fd6fbb8c2d8dbe95e80ec257578493d74d22",
+      "dhash": 5526604385979830860,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___healthy/leaf_005.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___healthy\\leaf_005.jpg",
+      "class_name": "Tomato___healthy",
+      "class_idx": 16,
+      "sha256": "95d185ef77c113238257c37793dc1bbe00ff8e19a1709e3434b88e996bfa561d",
+      "dhash": 5526604390291026452,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___healthy/leaf_006.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___healthy\\leaf_006.jpg",
+      "class_name": "Tomato___healthy",
+      "class_idx": 16,
+      "sha256": "f235105a0607b8ee8c4486509e5b485c695e71cd4ad2d619153e6c4d56936110",
+      "dhash": 1617189071484465996,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___healthy/leaf_007.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___healthy\\leaf_007.jpg",
+      "class_name": "Tomato___healthy",
+      "class_idx": 16,
+      "sha256": "ff19ab3b20706a40ab64f8b9cf568688d48a3827c4f90e6b409e6cd883f9fb8c",
+      "dhash": 896895586876338764,
+      "split": "val"
+    },
+    {
+      "rel_path": "Tomato___healthy/leaf_008.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___healthy\\leaf_008.jpg",
+      "class_name": "Tomato___healthy",
+      "class_idx": 16,
+      "sha256": "837ebd63557893438cc5563474fda73965575124078a930c28eff3ca88190ead",
+      "dhash": 5526604386047472460,
+      "split": "test"
+    },
+    {
+      "rel_path": "Tomato___healthy/leaf_009.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___healthy\\leaf_009.jpg",
+      "class_name": "Tomato___healthy",
+      "class_idx": 16,
+      "sha256": "3cbf3cc3fb1d17cf32a7e35815ac86ce8966b452593b076a94eb51f2b44bb3b3",
+      "dhash": 878872532415002184,
+      "split": "train"
+    },
+    {
+      "rel_path": "Tomato___healthy/leaf_010.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___healthy\\leaf_010.jpg",
+      "class_name": "Tomato___healthy",
+      "class_idx": 16,
+      "sha256": "0077bdfa30238583608065e301ad296262bb9d6cfac382f5468ce1c173dd3d1d",
+      "dhash": 5093968554994807372,
+      "split": "val"
+    },
+    {
+      "rel_path": "Tomato___healthy/leaf_011.jpg",
+      "abs_path": "E:\\AgriShield AI\\ml\\data\\sample_dataset\\Tomato___healthy\\leaf_011.jpg",
+      "class_name": "Tomato___healthy",
+      "class_idx": 16,
+      "sha256": "6c4bca217db0e7b7ad9e89ee68398b071dce0513cd4739a3cd2beb043846b20c",
+      "dhash": 5526604390290502156,
+      "split": "test"
+    }
+  ]
+}

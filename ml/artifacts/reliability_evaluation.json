@@ -1,0 +1,21 @@
+{
+  "temperature_calibration": {
+    "optimal_temperature": 0.10000000149011612,
+    "raw_nll": 1.2380152940750122,
+    "calibrated_nll": 3.54012131690979,
+    "raw_ece": 0.24163881908444795,
+    "calibrated_ece": 0.46927852665676795,
+    "improvement_pct": -94.20659662004243
+  },
+  "ood_detector": {
+    "energy_threshold": -3.3025999069213867,
+    "auroc": 1.0,
+    "mean_in_dist_energy": -4.474284648895264,
+    "mean_ood_energy": -2.92024827003479
+  },
+  "tested_states": {
+    "valid_leaf": "CONFIDENT",
+    "blurry_defect": "CANNOT_ASSESS",
+    "ood_noise": "CANNOT_ASSESS"
+  }
+}

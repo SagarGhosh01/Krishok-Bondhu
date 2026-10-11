@@ -1,0 +1,8 @@
+{
+  "backbone": "mobilenet_v3_large",
+  "pretrained": true,
+  "epochs": 5,
+  "batch_size": 16,
+  "lr": 0.001,
+  "seed": 2026
+}

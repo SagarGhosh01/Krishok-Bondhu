@@ -1,0 +1,78 @@
+name: AgriShield AI Continuous Integration
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  ml-and-backend:
+    name: ML Integrity & Backend API Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgl1 libglib2.0-0
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r infrastructure/requirements.txt
+
+      - name: Test Phase 2 Data Integrity & Leakage Prevention
+        run: |
+          python -m pytest ml/tests/test_dataset_leakage.py -v
+
+      - name: Test Phase 3 Model Architecture & Training Pipeline
+        run: |
+          python -m pytest ml/tests/test_model_pipeline.py -v
+
+      - name: Test Phase 4 Calibration, OOD & Reliability Engine
+        run: |
+          python -m pytest ml/tests/test_reliability.py -v
+
+      - name: Test Phase 5 ONNX Export & FP32/INT8 Numerical Parity
+        run: |
+          python -m pytest ml/tests/test_export_parity.py -v
+
+      - name: Test Phase 6 & 7 FastAPI Endpoints & Record Ownership
+        env:
+          DATABASE_URL: sqlite:///./services/api/agrishield.db
+          SECRET_KEY: test-ci-secret-key-agrishield
+        run: |
+          python -m pytest services/api/tests/ -v
+
+  frontend:
+    name: Frontend PWA Build & Typecheck
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: apps/web/package-lock.json
+
+      - name: Install frontend dependencies
+        run: |
+          npm --prefix apps/web ci
+
+      - name: TypeScript typecheck & Vite build
+        run: |
+          npm --prefix apps/web run build
