@@ -23,11 +23,13 @@ from services.api.schemas.predict import (
     QualityCheckOut,
     AlternativeCandidateOut,
     AdvisorySummaryOut,
+    FoliarSeverityOut,
 )
 from ml.src.data.classes import CLASS_NAMES, TAXONOMY_METADATA
 from ml.src.reliability.quality_gate import ImageQualityGate
 from ml.src.reliability.ood_detector import OODDetector
 from ml.src.reliability.decision_engine import DecisionEngine, DiagnosticState
+from ml.src.reliability.severity_estimator import estimate_foliar_severity
 from ml.src.models.classifier import build_model
 from ml.src.explainability.gradcam import GradCAM
 
@@ -178,6 +180,34 @@ class PredictionService:
             except Exception as e:
                 print(f"[Grad-CAM Error] {e}")
 
+        # 4b. Quantitative Foliar Severity & ICAR 5-Stage Scale
+        foliar_severity = None
+        if outcome.state != DiagnosticState.CANNOT_ASSESS:
+            try:
+                np_img_rgb = np.array(image.convert("RGB"), dtype=np.uint8)
+                if outcome.is_healthy:
+                    foliar_severity = FoliarSeverityOut(
+                        severity_percentage=0.0,
+                        severity_grade=1,
+                        grade_label="Healthy Foliage",
+                        projected_yield_loss_pct="0% (Optimal Growth)",
+                        lesion_spot_count=0,
+                        contour_image_base64=None,
+                    )
+                else:
+                    sev_mask = heatmap if "heatmap" in locals() and heatmap is not None else None
+                    sev_res = estimate_foliar_severity(np_img_rgb, gradcam_mask=sev_mask)
+                    foliar_severity = FoliarSeverityOut(
+                        severity_percentage=sev_res.severity_percentage,
+                        severity_grade=sev_res.severity_grade,
+                        grade_label=sev_res.grade_label,
+                        projected_yield_loss_pct=sev_res.projected_yield_loss_pct,
+                        lesion_spot_count=sev_res.lesion_spot_count,
+                        contour_image_base64=sev_res.contour_image_base64,
+                    )
+            except Exception as e:
+                print(f"[Foliar Severity Error] {e}")
+
         # 5. Retrieve Curated Advisory
         advisory_summary = None
         scientific_name = None
@@ -288,6 +318,7 @@ class PredictionService:
                 for a in outcome.top_alternatives
             ],
             advisory=advisory_summary,
+            severity=foliar_severity,
             gradcam_url=gradcam_url,
             gradcam_disclaimer=gradcam_disclaimer,
             message=outcome.message,

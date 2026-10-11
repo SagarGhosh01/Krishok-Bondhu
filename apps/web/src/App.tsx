@@ -6,6 +6,7 @@ import { ResultPage } from "./pages/ResultPage";
 import { LibraryPage } from "./pages/LibraryPage";
 import { FarmsPage } from "./pages/FarmsPage";
 import { AuthPage } from "./pages/AuthPage";
+import { OutbreakRadarPage } from "./pages/OutbreakRadarPage";
 import { setupOfflineSyncListeners, flushPendingSyncQueue } from "./services/offlineSync";
 
 export const App: React.FC = () => {
@@ -33,6 +34,7 @@ export const App: React.FC = () => {
         <Route path="/result" element={<ResultPage />} />
         <Route path="/library" element={<LibraryPage />} />
         <Route path="/farms" element={<FarmsPage />} />
+        <Route path="/outbreak" element={<OutbreakRadarPage />} />
         <Route path="/profile" element={<AuthPage />} />
         <Route path="/auth" element={<AuthPage />} />
         <Route path="*" element={<HomePage />} />

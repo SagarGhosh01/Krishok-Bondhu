@@ -96,5 +96,24 @@
     "no_account": "खाता नहीं है?",
     "have_account": "पहले से खाता है?",
     "logout": "लॉग आउट"
+  },
+  "advanced": {
+    "severity_title": "पत्ती क्षति एवं गंभीरता सूचकांक",
+    "lesion_overlay": "घाव/धब्बों की रूपरेखा देखें",
+    "hide_lesion_overlay": "रूपरेखा छुपाएं",
+    "lesion_spots": "पहचाने गए धब्बे",
+    "yield_risk": "उपज हानि का संभावित जोखिम",
+    "weather_risk_title": "मौसम आधारित 7-दिवसीय रोग प्रकोप जोखिम",
+    "wallin_bsv": "वालिन ब्लाइट गंभीरता इकाई",
+    "ask_assistant": "कृषि मित्र से पूछें",
+    "assistant_voice_btn": "वॉयस कृषि विशेषज्ञ",
+    "download_health_card": "फसल स्वास्थ्य कार्ड डाउनलोड",
+    "outbreak_radar_title": "क्षेत्रीय रोग प्रकोप रडार",
+    "radar_radius": "स्कैन दायरा",
+    "threat_level": "खतरे का स्तर",
+    "nearby_clusters": "निकटवर्ती रोग प्रकोप क्लस्टर",
+    "cert_title": "प्रमाणित फसल निदान कार्ड",
+    "cert_issued_by": "एग्रीशील्ड एआई डायग्नोस्टिक इंजन",
+    "cert_disclaimer": "ICAR दिशानिर्देशों के तहत निर्मित निदान सहायता। प्रयोगशाला जांच का विकल्प नहीं।"
   }
 }

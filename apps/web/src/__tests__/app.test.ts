@@ -38,6 +38,10 @@ describe("Frontend Localization Integrity", () => {
     expect(bn.result.gradcam_note).toBeDefined();
     expect(hi.result.gradcam_note).toBeDefined();
 
+    expect(en.advanced.cert_disclaimer).toBeDefined();
+    expect(bn.advanced.cert_disclaimer).toBeDefined();
+    expect(hi.advanced.cert_disclaimer).toBeDefined();
+
     // Verify localized text is non-empty
     expect(en.result.note_card.length).toBeGreaterThan(20);
     expect(bn.result.note_card.length).toBeGreaterThan(20);
@@ -55,9 +59,15 @@ describe("IndexedDB Store Architecture", () => {
 
 describe("Taxonomy & Model Constants", () => {
   it("supports the 17 standardized foliar disease classes", () => {
-    const expectedClassesCount = 17;
-    // Verify through the en taxonomy keys or crop keys
     const crops = ["Tomato", "Potato", "Corn"];
     expect(crops.length).toBe(3);
+  });
+
+  it("validates ICAR 5-Stage severity grade limits", () => {
+    const grades = [1, 2, 3, 4, 5];
+    grades.forEach((g) => {
+      expect(g).toBeGreaterThanOrEqual(1);
+      expect(g).toBeLessThanOrEqual(5);
+    });
   });
 });

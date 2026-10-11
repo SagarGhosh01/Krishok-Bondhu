@@ -96,5 +96,24 @@
     "no_account": "Don't have an account?",
     "have_account": "Already have an account?",
     "logout": "Log Out"
+  },
+  "advanced": {
+    "severity_title": "Foliar Damage & Severity",
+    "lesion_overlay": "Show Lesion Contours",
+    "hide_lesion_overlay": "Hide Lesion Contours",
+    "lesion_spots": "Spots Detected",
+    "yield_risk": "Yield Impact Risk",
+    "weather_risk_title": "Micro-Climate 7-Day Outbreak Risk",
+    "wallin_bsv": "Wallin Blight Severity",
+    "ask_assistant": "Ask Krishi Mitra",
+    "assistant_voice_btn": "Voice Agronomist",
+    "download_health_card": "Diagnostic Health Card",
+    "outbreak_radar_title": "Regional Outbreak Radar",
+    "radar_radius": "Scan Radius",
+    "threat_level": "Threat Level",
+    "nearby_clusters": "Nearby Disease Clusters",
+    "cert_title": "Certified Crop Diagnostic Card",
+    "cert_issued_by": "AgriShield AI Diagnostic Engine",
+    "cert_disclaimer": "Certified screening aid under ICAR guidelines. Not a substitute for lab ELISA/PCR."
   }
 }

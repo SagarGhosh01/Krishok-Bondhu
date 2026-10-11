@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Home, BookOpen, ScanLine, Sprout, User } from "lucide-react";
+import { Home, BookOpen, ScanLine, Sprout, User, Radio } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 export const Navigation: React.FC = () => {
@@ -10,8 +10,9 @@ export const Navigation: React.FC = () => {
 
   const navItems = [
     { path: "/", label: t("nav.home"), icon: Home },
-    { path: "/library", label: t("nav.library"), icon: BookOpen },
+    { path: "/outbreak", label: "Radar", icon: Radio },
     { path: "/recognize", label: t("nav.scan"), icon: ScanLine, isPrimary: true },
+    { path: "/library", label: t("nav.library"), icon: BookOpen },
     { path: "/farms", label: t("nav.farms"), icon: Sprout },
     { path: "/profile", label: t("nav.profile"), icon: User },
   ];

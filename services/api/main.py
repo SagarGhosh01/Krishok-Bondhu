@@ -12,7 +12,7 @@ from fastapi.staticfiles import StaticFiles
 from services.api.core.config import settings
 from services.api.database.connection import Base, engine, SessionLocal
 from services.api.database.seed import seed_database
-from services.api.routers import auth, predict, scans, farms, diseases, sync, feedback, health
+from services.api.routers import auth, predict, scans, farms, diseases, sync, feedback, health, assistant, forecast, outbreak
 
 
 @asynccontextmanager
@@ -64,6 +64,9 @@ app.include_router(farms.router, prefix=settings.API_V1_STR)
 app.include_router(diseases.router, prefix=settings.API_V1_STR)
 app.include_router(sync.router, prefix=settings.API_V1_STR)
 app.include_router(feedback.router, prefix=settings.API_V1_STR)
+app.include_router(assistant.router, prefix=settings.API_V1_STR)
+app.include_router(forecast.router, prefix=settings.API_V1_STR)
+app.include_router(outbreak.router, prefix=settings.API_V1_STR)
 
 # Direct root health endpoint
 app.include_router(health.router)

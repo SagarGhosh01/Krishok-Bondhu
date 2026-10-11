@@ -38,6 +38,15 @@ class AdvisorySummaryOut(BaseModel):
     review_date: Optional[str] = None
 
 
+class FoliarSeverityOut(BaseModel):
+    severity_percentage: float
+    severity_grade: int
+    grade_label: str
+    projected_yield_loss_pct: str
+    lesion_spot_count: int
+    contour_image_base64: Optional[str] = None
+
+
 class PredictionResponse(BaseModel):
     scan_id: str
     state: str  # CONFIDENT, UNCERTAIN, CANNOT_ASSESS
@@ -52,6 +61,7 @@ class PredictionResponse(BaseModel):
     quality: QualityCheckOut
     top_alternatives: List[AlternativeCandidateOut] = []
     advisory: Optional[AdvisorySummaryOut] = None
+    severity: Optional[FoliarSeverityOut] = None
     gradcam_url: Optional[str] = None
     gradcam_disclaimer: str
     message: str
