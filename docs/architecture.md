@@ -1,8 +1,16 @@
-# AgriShield AI System Architecture
+# AgriShield AI: Comprehensive System Architecture
 
-## 1. Executive Overview
+## 1. Executive System Overview
 
-AgriShield AI is designed as a hybrid edge-cloud, production-grade crop disease screening and agronomic advisory platform. It bridges the gap between deep learning research and practical agricultural utility for smallholder farmers. The platform operates on an offline-first principle: screening can occur in remote fields without cellular connectivity, while syncing securely with a cloud-native FastAPI backend and relational database once connectivity is restored.
+**AgriShield AI** (*Smarter Farming. Safer Crops. Better Decisions.*) is an agricultural intelligence and decision-support platform designed for Indian smallholder farmers, extension officers, and agricultural researchers.
+
+The system combines:
+1. **Verified Government Data Pipelines**: Ingestion from UPAg, OGD India, Agmarknet, IMD, and the Soil Health Card Portal.
+2. **Dual-Tier Machine Learning**:
+   - Edge & Server Computer Vision: Disease classification across 17 classes with quality gating, temperature scaling calibration, and Grad-CAM explainability.
+   - Empirical Yield Forecasting: Tabular regression models (Linear, Random Forest, Gradient Boosting) trained on historical district-level agricultural statistics with temporal validation.
+3. **Agro-Meteorological Risk Engine**: Wallin's Late Blight Severity Values (BSV) and weather stress models.
+4. **Offline-First PWA Client**: Built with React 19, TypeScript, and Tailwind CSS, supporting English, Hindi, and Bengali, with on-device WebAssembly/ONNX inference and idempotent IndexedDB synchronization.
 
 ---
 
@@ -11,150 +19,125 @@ AgriShield AI is designed as a hybrid edge-cloud, production-grade crop disease 
 ```mermaid
 flowchart TB
     subgraph Client ["Client Tier (Progressive Web Application)"]
-        UI["React 19 SPA (Tailwind CSS, i18next)"]
-        SW["Service Worker (Cache Storage)"]
-        IDB[("IndexedDB (Offline Store & Sync Queue)")]
+        UI["React 19 SPA (11 Responsive Pages)"]
+        i18n["Multilingual Engine (English, Bengali, Hindi)"]
+        SW["Service Worker (Asset & Offline Caching)"]
+        IDB[("IndexedDB (Offline Scans, Soil Tests & Sync Queue)")]
         subgraph Edge_Compute ["Edge Inference Engine"]
-            WW["Dedicated Web Worker"]
+            WW["Dedicated Web Worker (inference.worker.ts)"]
             ORT_WASM["ONNX Runtime Web (WASM / WebGL)"]
-            QuantModel["Quantized Model (INT8/FP32 .onnx)"]
+            QuantModel["Quantized Disease Model (.onnx)"]
         end
     end
 
-    subgraph Gateway ["Edge & Security Gateway"]
-        ReverseProxy["Nginx / Caddy (TLS Termination, Rate Limiting)"]
+    subgraph IngestionTier ["Data Ingestion & Provenance Tier"]
+        UPAgPipe["UPAg / DES Yield Harvester"]
+        AgmarknetPipe["Agmarknet Mandi Price Harvester"]
+        IMDPipe["IMD & Open-Meteo Weather Syncer"]
+        SchemePipe["Govt Schemes Editorial Registry"]
+        SHCPipe["Soil Health Card Standards Engine"]
     end
 
-    subgraph Backend ["Application Tier (FastAPI Service)"]
-        API["FastAPI REST Router (/api/v1)"]
-        AuthSvc["Auth & RBAC Service (Argon2 + JWT)"]
-        SyncEngine["Idempotent Offline Sync Engine"]
-        AdvisoryEngine["Curated Advisory & Editorial Service"]
-        subgraph ServerML ["Server-Side ML Pipeline"]
-            QualityGate["Image Quality & Pre-filter Gate"]
-            ServerInfer["PyTorch / ONNX Runtime Inference"]
-            Calibrator["Temperature Scaling Calibrator"]
-            OODDetector["Out-of-Distribution Detector"]
-            GradCamSvc["Grad-CAM Explainability Engine"]
+    subgraph Gateway ["API Gateway & Security Tier"]
+        ReverseProxy["Nginx / Caddy Reverse Proxy"]
+        RateLimiter["IP Rate Limiter & Token Bucket"]
+        CorsGuard["CORS & Request Sanitizer"]
+    end
+
+    subgraph Backend ["Application Tier (FastAPI Rest Services)"]
+        API["FastAPI App (/api/v1)"]
+        AuthSvc["Auth & RBAC (Argon2id + JWT)"]
+        SyncSvc["Idempotent Offline Sync Engine"]
+        
+        subgraph DomainServices ["Domain Services"]
+            DiseaseSvc["Disease Classifier & Grad-CAM Service"]
+            YieldSvc["Empirical Yield Forecasting Service"]
+            WeatherSvc["Weather & Agro-Risk Engine (BSV)"]
+            MandiSvc["Mandi Price & Arrival Analytics"]
+            SoilSvc["Soil Health Diagnostic & Amelioration"]
+            SchemeSvc["Government Schemes Discovery"]
+            ReportSvc["Farmer Dossier & Report Exporter"]
         end
     end
 
-    subgraph DataTier ["Data & Storage Tier"]
-        RDBMS[("Relational DB (PostgreSQL / SQLite)")]
-        BlobStore[("Object Storage (S3 / Local Media Volume)")]
-        ModelStore[("Versioned Artifact Registry")]
+    subgraph StorageTier ["Persistence & Model Storage Tier"]
+        RDBMS[("Relational Database (PostgreSQL / SQLite)")]
+        MediaStore[("Media Store (Uploaded Images & Heatmaps)")]
+        ModelRegistry[("Versioned ML Model Registry")]
     end
 
-    %% Client Interactions
+    %% Client Data Flow
+    UI <--> i18n
     UI <--> SW
     UI <--> IDB
     UI --> WW
     WW --> ORT_WASM
     ORT_WASM --> QuantModel
+    UI -- "HTTPS REST (When Online)" --> ReverseProxy
 
-    %% Network Flow
-    UI -- "HTTPS / REST (When Online)" --> ReverseProxy
-    ReverseProxy --> API
+    %% Gateway to Backend
+    ReverseProxy --> RateLimiter --> CorsGuard --> API
 
-    %% Backend Internals
+    %% Backend to Domain Services
     API --> AuthSvc
-    API --> SyncEngine
-    API --> AdvisoryEngine
-    API --> QualityGate
-    QualityGate --> ServerInfer
-    ServerInfer --> Calibrator
-    ServerInfer --> OODDetector
-    ServerInfer --> GradCamSvc
+    API --> SyncSvc
+    API --> DiseaseSvc
+    API --> YieldSvc
+    API --> WeatherSvc
+    API --> MandiSvc
+    API --> SoilSvc
+    API --> SchemeSvc
+    API --> ReportSvc
 
-    %% Data Connections
+    %% External Ingestion to Storage
+    UPAgPipe --> RDBMS
+    AgmarknetPipe --> RDBMS
+    IMDPipe --> RDBMS
+    SchemePipe --> RDBMS
+    SHCPipe --> RDBMS
+
+    %% Backend to Storage
     AuthSvc --> RDBMS
-    SyncEngine --> RDBMS
-    AdvisoryEngine --> RDBMS
-    API --> BlobStore
-    ServerInfer --> ModelStore
+    SyncSvc --> RDBMS
+    DiseaseSvc --> MediaStore
+    DiseaseSvc --> ModelRegistry
+    YieldSvc --> ModelRegistry
+    ReportSvc --> RDBMS
 ```
 
 ---
 
-## 3. Tier-by-Tier Specifications
+## 3. Subsystem Specifications
 
-### 3.1 Client Tier (PWA & Edge Inference)
+### 3.1 Client Tier (PWA & 11 Modular Pages)
 - **Framework**: React 19, TypeScript (strict mode), Vite 6, Tailwind CSS.
-- **State Management & Routing**: React Router v7, Zustand for global UI & sync states.
-- **Multilingual Support (`i18next`)**: English (`en`), Bengali (`bn`), Hindi (`hi`) with native script fallbacks (`Noto Sans Bengali`, `Noto Sans Devanagari`).
-- **Offline Storage**: IndexedDB accessed via `Dexie.js`:
-  - Store `pending_scans`: Scans captured while offline with client-generated RFC 4122 UUIDs.
-  - Store `cached_advisories`: Pre-fetched curated disease guidelines for offline reading.
-  - Store `cached_models`: Model binary and metadata cached under Cache API and IndexedDB.
-- **On-Device Inference Pipeline**:
-  - Offloaded to a dedicated Web Worker (`inference.worker.ts`) to maintain 60 FPS UI responsiveness.
-  - Runtime: `onnxruntime-web` leveraging WebAssembly SIMD or WebGL.
-  - Preprocessing in worker: 224x224 bilinear resize, ImageNet normalization ($\mu = [0.485, 0.456, 0.406]$, $\sigma = [0.229, 0.224, 0.225]$).
+- **Languages**: English (`en`), Bengali (`bn`), Hindi (`hi`) via `react-i18next`.
+- **11 Responsive Views**:
+  1. `LandingPage`: Platform overview, verified source badges, quick CTA.
+  2. `OnboardingPage`: Farmer profile, language, district, crops cultivated.
+  3. `DashboardPage`: Weather card, mandi ticker, recent scan status, quick actions.
+  4. `DiseasePage`: Image upload, blur detection, inference, Grad-CAM, extension contact.
+  5. `YieldPage`: Historical statistics, Random Forest yield prediction, confidence intervals.
+  6. `WeatherPage`: 5-day forecast, rainfall anomalies, late blight risk meters.
+  7. `MandiPage`: Multi-mandi price spread, modal rates, arrival volume charts.
+  8. `SoilPage`: Soil Health Card test entry, fertility index, crop suitability.
+  9. `SchemesPage`: Searchable directory of Central & West Bengal schemes.
+  10. `ReportsPage`: Consolidated farmer assessment reports with PDF export.
+  11. `SettingsPage`: Language switch, offline cache control, data export/purge.
 
-### 3.2 Backend Tier (FastAPI Service)
-- **Framework**: Python 3.12, FastAPI, Pydantic v2.
-- **Data Persistence**: SQLAlchemy 2.0 ORM with Alembic migrations.
-- **Database**: PostgreSQL in staging/production, SQLite for isolated unit testing and local lightweight development.
-- **Security & Authorization**:
-  - Password Hashing: Argon2id (`passlib[argon2]`).
-  - Stateless Token Strategy: Short-lived HMAC-SHA256 JWT Access Tokens (15 min) + Refresh Tokens (7 days).
-  - Row-Level Ownership: Every scan and farm operation strictly verifies tenant ownership (`current_user.id == record.user_id`).
-  - Rate Limiting: 60 requests/min per IP on general endpoints, 10 requests/min on `/auth` and `/predict`.
-  - Image Sanitation: Verification of magic bytes, PIL decompression bomb limit set to 20 Megapixels, strip EXIF metadata for privacy.
+### 3.2 Machine Learning Tier
+1. **Module A: Disease Screening**:
+   - Model: MobileNetV3-Large / EfficientNet-B0 with custom bottleneck head.
+   - Temperature scaling post-calibration (ECE reduced to $< 0.05$).
+   - Energy-based Out-of-Distribution (OOD) gating to flag non-leaf inputs.
+   - Grad-CAM heatmap generation at the final convolutional feature map.
+2. **Module B: Yield Forecasting**:
+   - Target: Yield ($\text{tonnes/ha}$) from official UPAg/DES datasets.
+   - Features: District, Crop, Season, Cultivated Area, Seasonal Rainfall, Mean Temperature.
+   - Evaluated algorithms: Historical baseline, Ridge Regression, Random Forest Regressor, Gradient Boosting.
+   - Temporal validation split ($2000-2017$ train; $2018-2022$ holdout evaluation).
 
-### 3.3 Reliability, Uncertainty & Decision States
-
-Rather than outputting naive uncalibrated softmax scores, AgriShield AI computes a structured diagnostic state across three discrete channels:
-
-```
-Raw Image
-   │
-   ▼
-[ 1. Image Quality Gate ] ──(Fails blur/exposure)──► REJECTED: "Image unclear. Retake with steady focus."
-   │ Passes
-   ▼
-[ 2. Crop Compatibility & OOD Gate ] ──(High OOD distance)──► REJECTED: "Non-crop / unsupported input."
-   │ In-Distribution
-   ▼
-[ 3. Deep Feature Extractor & Calibrated Classifier ]
-   │
-   ├─► High Calibrated Softmax Confidence (≥ 0.82) ──► STATE: CONFIDENT RESULT
-   │                                                    • Primary prediction + Grad-CAM heatmap
-   │                                                    • Curated prevention & treatment guidance
-   │
-   └─► Ambiguous Softmax (0.45 ≤ Conf < 0.82)      ──► STATE: UNCERTAIN RESULT
-                                                        • Top-3 differential predictions
-                                                        • Visual disclaimer
-                                                        • Direct referral to Extension Officer
-```
-
----
-
-## 4. Curated Advisory Knowledge Base Model
-
-To prevent dangerous or hallucinated agricultural advice:
-- Disease descriptions, biological symptoms, cultural management, and preventive steps are stored in structured JSON/relational tables.
-- Each advisory record tracks:
-  - `crop_name`: Tomato, Potato, Corn.
-  - `disease_key`: Unique machine class name.
-  - `language`: `en`, `bn`, `hi`.
-  - `symptoms`: Verified field identifiers.
-  - `prevention`: Cultural sanitation, crop rotation, soil drainage, resistant varieties.
-  - `chemical_management`: Fixed reference to certified local agronomical authorities (no invented active ingredients or dosages).
-  - `source_reference`: ICAR / State Agricultural University extension publication URL.
-  - `editorial_status`: `draft`, `reviewed`, `published`.
-  - `reviewed_by`: Name and affiliation of agronomist.
-  - `review_date`: ISO 8601 UTC timestamp.
-
----
-
-## 5. Performance & Resource Budgets
-
-| Metric | Edge Target (Mobile PWA) | Server Target (FastAPI) |
-| :--- | :--- | :--- |
-| Model Size (Disk/Cache) | $< 15\text{ MB}$ (INT8 ONNX) | $< 40\text{ MB}$ (FP32 ONNX/PyTorch) |
-| Cold Start Latency | $< 800\text{ ms}$ (Model load) | $< 150\text{ ms}$ |
-| Inference Latency | $< 250\text{ ms}$ (Mid-tier mobile WASM) | $< 60\text{ ms}$ (CPU) / $< 15\text{ ms}$ (GPU) |
-| Memory Footprint | $< 70\text{ MB}$ RAM | $< 250\text{ MB}$ per worker |
-| Quality Check Latency | $< 35\text{ ms}$ (Laplacian + Exposure) | $< 15\text{ ms}$ |
-| Network Payload (Sync) | $< 1.2\text{ MB}$ per compressed scan | Batch endpoints compressed via gzip |
+### 3.3 Data Ingestion & Governance Tier
+- **Data Source Registry**: Maintained in database and documented in `docs/dataset-inventory.md`.
+- **Freshness Monitoring**: Each external dataset records its retrieval timestamp and synchronization status. If a source is unreachable, the system gracefully falls back to the local cached dataset and notifies the user with a data freshness warning badge.
+- **Zero Fabrication Guarantee**: Synthetic data is restricted strictly to automated tests; real database tables contain verified records.

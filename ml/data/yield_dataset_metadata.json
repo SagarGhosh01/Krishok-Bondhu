@@ -1,0 +1,59 @@
+{
+  "dataset_name": "West Bengal District-Level Crop Yield Historical Statistics",
+  "publisher": "Directorate of Economics and Statistics (DES) & UPAg, Ministry of Agriculture & Farmers Welfare, GoI",
+  "file_name": "official_crop_yield_west_bengal.csv",
+  "sha256_checksum": "99a49864c291717f6a51293890f00183bf236e6b690c3002edb7a40e2353de80",
+  "record_count": 2300,
+  "year_range": [
+    2005,
+    2022
+  ],
+  "crops": [
+    "Jute",
+    "Maize",
+    "Mustard",
+    "Potato",
+    "Rice",
+    "Tomato",
+    "Wheat"
+  ],
+  "districts": [
+    "Bankura",
+    "Birbhum",
+    "Cooch Behar",
+    "Dakshin Dinajpur",
+    "Hooghly",
+    "Jalpaiguri",
+    "Malda",
+    "Murshidabad",
+    "Nadia",
+    "North 24 Parganas",
+    "Paschim Bardhaman",
+    "Paschim Medinipur",
+    "Purba Bardhaman",
+    "Purba Medinipur",
+    "Purulia",
+    "South 24 Parganas",
+    "Uttar Dinajpur"
+  ],
+  "seasons": [
+    "Kharif",
+    "Rabi",
+    "Summer"
+  ],
+  "schema": {
+    "state": "Categorical - Indian State",
+    "district": "Categorical - West Bengal District",
+    "crop_year": "Integer - Agricultural Year",
+    "season": "Categorical - Kharif, Rabi, Summer",
+    "crop": "Categorical - Commodity Name",
+    "area_hectares": "Float - Cultivated Land Area (Hectares)",
+    "production_tonnes": "Float - Total Harvest Production (Metric Tonnes)",
+    "yield_tonnes_per_hectare": "Float - Metric Tonnes per Hectare",
+    "rainfall_mm": "Float - Cumulative Seasonal Precipitation",
+    "mean_temperature_celsius": "Float - Mean Seasonal Ambient Temperature",
+    "irrigation_coverage_pct": "Float - Percentage of Net Sown Area Irrigated"
+  },
+  "license": "Government Open Data License - India (GODL)",
+  "last_generated": "2026-10-27T23:45:00+05:30"
+}

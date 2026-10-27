@@ -1,0 +1,113 @@
+{
+  "best_model_name": "Random Forest Regressor",
+  "evaluation_metrics": {
+    "Historical Mean Baseline": {
+      "MAE_t_ha": 0.6174,
+      "RMSE_t_ha": 1.1877,
+      "R2_score": 0.9789,
+      "MAPE_pct": 7.74
+    },
+    "Ridge Linear Regression": {
+      "MAE_t_ha": 0.6442,
+      "RMSE_t_ha": 1.1384,
+      "R2_score": 0.9806,
+      "MAPE_pct": 9.76
+    },
+    "Random Forest Regressor": {
+      "MAE_t_ha": 0.5388,
+      "RMSE_t_ha": 1.0215,
+      "R2_score": 0.9844,
+      "MAPE_pct": 6.52
+    },
+    "Gradient Boosting Regressor": {
+      "MAE_t_ha": 0.544,
+      "RMSE_t_ha": 1.0384,
+      "R2_score": 0.9838,
+      "MAPE_pct": 6.66
+    }
+  },
+  "features": [
+    "district_Bankura",
+    "district_Birbhum",
+    "district_Cooch Behar",
+    "district_Dakshin Dinajpur",
+    "district_Hooghly",
+    "district_Jalpaiguri",
+    "district_Malda",
+    "district_Murshidabad",
+    "district_Nadia",
+    "district_North 24 Parganas",
+    "district_Paschim Bardhaman",
+    "district_Paschim Medinipur",
+    "district_Purba Bardhaman",
+    "district_Purba Medinipur",
+    "district_Purulia",
+    "district_South 24 Parganas",
+    "district_Uttar Dinajpur",
+    "crop_Jute",
+    "crop_Maize",
+    "crop_Mustard",
+    "crop_Potato",
+    "crop_Rice",
+    "crop_Tomato",
+    "crop_Wheat",
+    "season_Kharif",
+    "season_Rabi",
+    "season_Summer",
+    "area_hectares",
+    "rainfall_mm",
+    "mean_temperature_celsius",
+    "irrigation_coverage_pct"
+  ],
+  "split_protocol": "Temporal Holdout: Train 2005-2017, Test 2018-2022",
+  "crop_historical_benchmarks": {
+    "Jute": {
+      "mean": 2.7440307692307693,
+      "std": 0.24192659974891217,
+      "min": 2.173,
+      "max": 3.396
+    },
+    "Maize": {
+      "mean": 4.263590909090909,
+      "std": 0.32750859163289264,
+      "min": 3.551,
+      "max": 5.213
+    },
+    "Mustard": {
+      "mean": 1.2798608695652174,
+      "std": 0.09513618004536023,
+      "min": 1.051,
+      "max": 1.51
+    },
+    "Potato": {
+      "mean": 25.578323308270676,
+      "std": 2.0696672567760253,
+      "min": 20.703,
+      "max": 32.261
+    },
+    "Rice": {
+      "mean": 3.1127149321266967,
+      "std": 0.3125247908527283,
+      "min": 2.316,
+      "max": 4.176
+    },
+    "Tomato": {
+      "mean": 16.9655,
+      "std": 1.549119136281511,
+      "min": 13.373,
+      "max": 21.331
+    },
+    "Wheat": {
+      "mean": 2.8532159999999998,
+      "std": 0.21965400152762213,
+      "min": 2.244,
+      "max": 3.44
+    }
+  },
+  "unit": "Tonnes per Hectare (t/ha)",
+  "limitations": [
+    "Model is calibrated on historical district statistics and weather reanalysis.",
+    "Cannot foresee unseasonal flash flooding, severe cyclonic landfall, or localized locust/pest attacks.",
+    "Predictions are planning estimates and do not guarantee actual farm output."
+  ]
+}

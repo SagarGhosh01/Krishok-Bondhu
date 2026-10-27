@@ -143,7 +143,11 @@ def seed_database(db: Session = None):
             db.add(mv)
             db.commit()
 
-        print("[Seed] Successfully seeded all taxonomy, multilingual advisories, users, and model versions.")
+        # 4. Extended Entities: Data Sources, Government Schemes, Mandi Prices, Crop Yield Records
+        from services.api.data_pipeline.seed_extended import seed_extended_entities
+        seed_extended_entities(db)
+
+        print("[Seed] Successfully seeded all taxonomy, multilingual advisories, users, model versions, data sources, schemes, mandi prices, and crop yields.")
 
     finally:
         if close_at_end:

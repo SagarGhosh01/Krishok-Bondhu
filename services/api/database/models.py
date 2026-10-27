@@ -192,3 +192,100 @@ class Feedback(Base):
 
     prediction = relationship("Prediction", back_populates="feedbacks")
     user = relationship("User", back_populates="feedbacks")
+
+
+class DataSource(Base):
+    __tablename__ = "data_sources"
+
+    id = Column(String(50), primary_key=True)  # e.g., 'upag_des', 'agmarknet', 'imd_weather', 'soil_health_card'
+    name = Column(String(150), nullable=False)
+    publisher = Column(String(200), nullable=False)
+    resource_url = Column(String(512), nullable=False)
+    license = Column(String(150), nullable=False)
+    category = Column(String(50), nullable=False)  # statistics, market, weather, soil, schemes
+    last_successful_sync = Column(DateTime, nullable=True)
+    sync_status = Column(String(50), default="active", nullable=False)  # active, stale, offline, cached
+    record_count = Column(Integer, default=0, nullable=False)
+    error_log = Column(Text, nullable=True)
+    created_at = Column(DateTime, default=utc_now, nullable=False)
+
+
+class CropYieldRecord(Base):
+    __tablename__ = "crop_yield_records"
+
+    id = Column(String(36), primary_key=True, default=generate_uuid)
+    state = Column(String(60), nullable=False, index=True)
+    district = Column(String(60), nullable=False, index=True)
+    crop_year = Column(Integer, nullable=False, index=True)
+    season = Column(String(30), nullable=False)  # Kharif, Rabi, Summer
+    crop = Column(String(60), nullable=False, index=True)
+    area_hectares = Column(Float, nullable=False)
+    production_tonnes = Column(Float, nullable=False)
+    yield_tonnes_per_hectare = Column(Float, nullable=False)
+    rainfall_mm = Column(Float, nullable=True)
+    mean_temperature_celsius = Column(Float, nullable=True)
+    irrigation_coverage_pct = Column(Float, nullable=True)
+    source_name = Column(String(100), default="UPAg / DES", nullable=False)
+    created_at = Column(DateTime, default=utc_now, nullable=False)
+
+    __table_args__ = (
+        Index("idx_yield_state_dist_crop", "state", "district", "crop", "crop_year"),
+    )
+
+
+class MandiPrice(Base):
+    __tablename__ = "mandi_prices"
+
+    id = Column(String(36), primary_key=True, default=generate_uuid)
+    state = Column(String(60), nullable=False, index=True)
+    district = Column(String(60), nullable=False, index=True)
+    market_name = Column(String(100), nullable=False, index=True)
+    commodity = Column(String(60), nullable=False, index=True)
+    variety = Column(String(60), nullable=True)
+    arrival_date = Column(String(20), nullable=False, index=True)  # YYYY-MM-DD
+    min_price = Column(Float, nullable=False)  # ₹ / Quintal
+    max_price = Column(Float, nullable=False)  # ₹ / Quintal
+    modal_price = Column(Float, nullable=False)  # ₹ / Quintal
+    arrivals_volume = Column(Float, nullable=False)  # Quintals
+    source_timestamp = Column(DateTime, default=utc_now, nullable=False)
+    created_at = Column(DateTime, default=utc_now, nullable=False)
+
+    __table_args__ = (
+        Index("idx_mandi_query", "state", "district", "commodity", "arrival_date"),
+    )
+
+
+class SoilTestRecord(Base):
+    __tablename__ = "soil_tests"
+
+    id = Column(String(36), primary_key=True, default=generate_uuid)
+    user_id = Column(String(36), ForeignKey("users.id", ondelete="CASCADE"), nullable=True, index=True)
+    farm_id = Column(String(36), ForeignKey("farms.id", ondelete="SET NULL"), nullable=True, index=True)
+    sample_date = Column(String(20), nullable=False)
+    ph = Column(Float, nullable=False)
+    electrical_conductivity = Column(Float, nullable=False)
+    organic_carbon_pct = Column(Float, nullable=False)
+    available_nitrogen = Column(Float, nullable=False)
+    available_phosphorus = Column(Float, nullable=False)
+    available_potassium = Column(Float, nullable=False)
+    fertility_rating = Column(String(30), nullable=False)  # High, Medium, Low, Acidic, Alkaline
+    recommendations_json = Column(Text, nullable=False)
+    created_at = Column(DateTime, default=utc_now, nullable=False)
+
+
+class GovernmentScheme(Base):
+    __tablename__ = "government_schemes"
+
+    id = Column(String(50), primary_key=True)  # e.g., 'PM_KISAN', 'BSB_WB', 'KRISHAK_BANDHU'
+    code = Column(String(50), unique=True, nullable=False)
+    title_en = Column(String(150), nullable=False)
+    title_hi = Column(String(200), nullable=False)
+    title_bn = Column(String(200), nullable=False)
+    category = Column(String(50), nullable=False)  # Income Support, Insurance, Credit, Subsidies
+    sponsoring_agency = Column(String(150), nullable=False)
+    official_url = Column(String(512), nullable=False)
+    eligibility_criteria_json = Column(Text, nullable=False)
+    documents_required_json = Column(Text, nullable=False)
+    benefits_summary_json = Column(Text, nullable=False)
+    last_verified_date = Column(String(20), nullable=False)
+    created_at = Column(DateTime, default=utc_now, nullable=False)

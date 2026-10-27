@@ -5,15 +5,22 @@
 const API_BASE = "/api/v1";
 
 export function getAuthToken(): string | null {
-  return localStorage.getItem("agrishield_token");
+  if (typeof window !== "undefined" && window.localStorage) {
+    return localStorage.getItem("agrishield_token");
+  }
+  return null;
 }
 
 export function setAuthToken(token: string): void {
-  localStorage.setItem("agrishield_token", token);
+  if (typeof window !== "undefined" && window.localStorage) {
+    localStorage.setItem("agrishield_token", token);
+  }
 }
 
 export function removeAuthToken(): void {
-  localStorage.removeItem("agrishield_token");
+  if (typeof window !== "undefined" && window.localStorage) {
+    localStorage.removeItem("agrishield_token");
+  }
 }
 
 export function getAuthHeaders(): HeadersInit {
@@ -132,5 +139,151 @@ export async function submitFeedback(predictionId: string, correct: boolean, sug
       comments: comments,
     }),
   });
+  return res.json();
+}
+
+// --- FULL PLATFORM MODULE API METHODS ---
+
+export async function predictYield(payload: {
+  state?: string;
+  district: string;
+  crop: string;
+  season: string;
+  area_hectares: number;
+  rainfall_mm?: number;
+  mean_temperature_celsius?: number;
+  irrigation_coverage_pct?: number;
+}) {
+  const res = await fetch(`${API_BASE}/yield/predict`, {
+    method: "POST",
+    headers: { ...getAuthHeaders(), "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(err.detail || "Yield prediction failed");
+  }
+  return res.json();
+}
+
+export async function fetchHistoricalYield(district?: string, crop?: string, limit = 50) {
+  let url = `${API_BASE}/yield/historical?limit=${limit}`;
+  if (district) url += `&district=${encodeURIComponent(district)}`;
+  if (crop) url += `&crop=${encodeURIComponent(crop)}`;
+  const res = await fetch(url);
+  if (!res.ok) return { count: 0, records: [] };
+  return res.json();
+}
+
+export async function fetchSupportedCrops() {
+  const res = await fetch(`${API_BASE}/yield/crops`);
+  if (!res.ok) return { crops: [] };
+  return res.json();
+}
+
+export async function fetchSupportedDistricts() {
+  const res = await fetch(`${API_BASE}/yield/districts`);
+  if (!res.ok) return { state: "West Bengal", districts: [] };
+  return res.json();
+}
+
+export async function fetchWeatherCurrent(district = "Purba Bardhaman") {
+  const res = await fetch(`${API_BASE}/weather/current?district=${encodeURIComponent(district)}`);
+  if (!res.ok) return null;
+  return res.json();
+}
+
+export async function fetchWeatherForecast(district = "Purba Bardhaman") {
+  const res = await fetch(`${API_BASE}/weather/forecast?district=${encodeURIComponent(district)}`);
+  if (!res.ok) return null;
+  return res.json();
+}
+
+export async function fetchMandiPrices(params: {
+  commodity?: string;
+  district?: string;
+  market?: string;
+  limit?: number;
+}) {
+  let url = `${API_BASE}/mandi/prices?limit=${params.limit || 50}`;
+  if (params.commodity && params.commodity !== "All") url += `&commodity=${encodeURIComponent(params.commodity)}`;
+  if (params.district && params.district !== "All") url += `&district=${encodeURIComponent(params.district)}`;
+  if (params.market) url += `&market=${encodeURIComponent(params.market)}`;
+  const res = await fetch(url);
+  if (!res.ok) return { count: 0, prices: [] };
+  return res.json();
+}
+
+export async function fetchMandiTrends(commodity = "Potato", district = "Purba Bardhaman") {
+  const res = await fetch(`${API_BASE}/mandi/trends?commodity=${encodeURIComponent(commodity)}&district=${encodeURIComponent(district)}`);
+  if (!res.ok) return { timeline: [] };
+  return res.json();
+}
+
+export async function fetchMandiSpread(commodity = "Potato") {
+  const res = await fetch(`${API_BASE}/mandi/spread?commodity=${encodeURIComponent(commodity)}`);
+  if (!res.ok) return { markets: [] };
+  return res.json();
+}
+
+export async function fetchMandiCommodities() {
+  const res = await fetch(`${API_BASE}/mandi/commodities`);
+  if (!res.ok) return { commodities: ["Potato", "Tomato", "Rice", "Maize", "Mustard", "Jute"] };
+  return res.json();
+}
+
+export async function analyzeSoil(payload: {
+  ph: number;
+  electrical_conductivity: number;
+  organic_carbon_pct: number;
+  available_nitrogen: number;
+  available_phosphorus: number;
+  available_potassium: number;
+  farm_id?: string;
+}) {
+  const res = await fetch(`${API_BASE}/soil/analyze`, {
+    method: "POST",
+    headers: { ...getAuthHeaders(), "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(err.detail || "Soil analysis request failed");
+  }
+  return res.json();
+}
+
+export async function fetchSoilBenchmarks() {
+  const res = await fetch(`${API_BASE}/soil/benchmarks`);
+  if (!res.ok) return { parameters: [] };
+  return res.json();
+}
+
+export async function fetchGovernmentSchemes(category?: string, search?: string, lang = "en") {
+  let url = `${API_BASE}/schemes?language=${lang}`;
+  if (category && category !== "All") url += `&category=${encodeURIComponent(category)}`;
+  if (search) url += `&search=${encodeURIComponent(search)}`;
+  const res = await fetch(url);
+  if (!res.ok) return { count: 0, schemes: [] };
+  return res.json();
+}
+
+export async function fetchSchemeDetail(id: string, lang = "en") {
+  const res = await fetch(`${API_BASE}/schemes/${encodeURIComponent(id)}?language=${lang}`);
+  if (!res.ok) return null;
+  return res.json();
+}
+
+export async function fetchDataSources() {
+  const res = await fetch(`${API_BASE}/sources`);
+  if (!res.ok) return { count: 0, registry: [] };
+  return res.json();
+}
+
+export async function fetchFarmerReport(district = "Purba Bardhaman", crop = "Potato") {
+  const res = await fetch(`${API_BASE}/reports/farmer-summary?district=${encodeURIComponent(district)}&crop=${encodeURIComponent(crop)}`, {
+    headers: getAuthHeaders(),
+  });
+  if (!res.ok) return null;
   return res.json();
 }

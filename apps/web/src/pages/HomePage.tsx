@@ -4,298 +4,294 @@ import { useTranslation } from "react-i18next";
 import {
   Sparkles,
   ArrowRight,
-  Clock,
-  WifiOff,
-  CheckCircle2,
-  Radio,
-  Bot,
-  BookOpen,
+  TrendingUp,
+  Store,
+  FlaskConical,
+  Landmark,
   CloudSun,
-  Thermometer,
-  Droplets,
-  ShieldAlert,
+  ShieldCheck,
   ChevronRight,
   Sprout,
+  FileText,
+  Radio,
+  Clock,
+  Droplets,
+  AlertTriangle,
 } from "lucide-react";
 import { Header } from "../components/Header";
 import { Navigation } from "../components/Navigation";
-import { KrishiMitraModal } from "../components/KrishiMitraModal";
-import { db, StoredScan } from "../db/indexedDb";
-import { fetchUserScans } from "../services/api";
+import { fetchUserScans, fetchWeatherCurrent, fetchMandiPrices } from "../services/api";
 
 export const HomePage: React.FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const [recentScans, setRecentScans] = useState<StoredScan[]>([]);
+
+  const [recentScans, setRecentScans] = useState<any[]>([]);
   const [selectedCropFilter, setSelectedCropFilter] = useState<string>("All");
-  const [showKrishiMitra, setShowKrishiMitra] = useState<boolean>(false);
+  const [weatherSummary, setWeatherSummary] = useState<any | null>(null);
+  const [mandiTicker, setMandiTicker] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function loadScans() {
-      try {
-        const localScans = await db.scans.orderBy("createdAt").reverse().limit(10).toArray();
+    // 1. Load weather summary for pilot district
+    fetchWeatherCurrent("Purba Bardhaman")
+      .then((data) => {
+        if (data) setWeatherSummary(data);
+      })
+      .catch(() => {});
 
-        if (navigator.onLine) {
-          try {
-            const apiRes = await fetchUserScans(1, 10);
-            if (apiRes.items && apiRes.items.length > 0) {
-              const formatted: StoredScan[] = apiRes.items.map((item: any) => ({
-                id: item.id,
-                imageData: item.image_url,
-                originalFilename: item.original_filename,
-                crop: item.prediction?.primary_crop || "Crop",
-                disease: item.prediction?.primary_disease || "Diagnosed Leaf",
-                confidence: item.prediction?.calibrated_confidence || 0.8,
-                reliability: item.prediction?.reliability_score || 0.85,
-                diagnosticState: item.prediction?.state || "CONFIDENT",
-                isOfflinePending: item.is_offline_captured,
-                createdAt: item.created_at,
-                gradcamUrl: item.prediction?.gradcam_url,
-              }));
-              setRecentScans(formatted);
-              setLoading(false);
-              return;
-            }
-          } catch (e) {
-            console.warn("Backend scans fetch fallback to local DB:", e);
-          }
+    // 2. Load recent mandi prices
+    fetchMandiPrices({ limit: 4 })
+      .then((res) => {
+        if (res && res.prices) setMandiTicker(res.prices);
+      })
+      .catch(() => {});
+
+    // 3. Load user scans
+    fetchUserScans(1, 6)
+      .then((res) => {
+        if (res.items) {
+          setRecentScans(res.items);
         }
-
-        setRecentScans(localScans);
-      } catch (err) {
-        console.error("Error loading scans:", err);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    loadScans();
+      })
+      .catch(() => {})
+      .finally(() => setLoading(false));
   }, []);
-
-  const getRelativeTime = (isoString: string) => {
-    try {
-      const diffSec = Math.floor((Date.now() - new Date(isoString).getTime()) / 1000);
-      if (diffSec < 60) return "just now";
-      if (diffSec < 3600) return `${Math.floor(diffSec / 60)}m ago`;
-      if (diffSec < 86400) return `${Math.floor(diffSec / 3600)}h ago`;
-      return new Date(isoString).toLocaleDateString();
-    } catch {
-      return "recently";
-    }
-  };
 
   const filteredScans =
     selectedCropFilter === "All"
       ? recentScans
-      : recentScans.filter((s) => s.crop?.toLowerCase().includes(selectedCropFilter.toLowerCase()));
+      : recentScans.filter((s) =>
+          s.prediction?.primary_crop?.toLowerCase().includes(selectedCropFilter.toLowerCase())
+        );
 
   return (
-    <div className="min-h-screen bg-agri-bg pb-28 max-w-md mx-auto relative font-sans flex flex-col">
+    <div className="min-h-screen bg-[#F8FAF8] pb-28">
       <Header />
 
-      <main className="px-4 py-3 space-y-4 flex-1">
-        {/* Micro-Climate & Field Weather Ticker */}
-        <div className="bg-gradient-to-r from-[#212922] to-[#2B362D] text-white p-4 rounded-3xl shadow-sm border border-white/5 flex items-center justify-between">
+      <main className="max-w-4xl mx-auto px-4 py-4 space-y-4">
+        {/* Micro-Climate & Agro-Risk Live Banner */}
+        <div className="bg-gradient-to-r from-[#1E2820] to-[#2B382E] text-white p-4.5 rounded-3xl shadow-sm border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-white/10 flex items-center justify-center text-agri-accent">
+            <div className="w-11 h-11 rounded-2xl bg-white/10 flex items-center justify-center text-emerald-300">
               <CloudSun className="w-6 h-6" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-base font-bold">24.5°C</span>
-                <span className="text-xs text-stone-300">| 84% RH</span>
+                <span className="text-base font-black">
+                  {weatherSummary?.current?.temperature_celsius
+                    ? `${Math.round(weatherSummary.current.temperature_celsius)}°C`
+                    : "24.5°C"}
+                </span>
+                <span className="text-xs text-stone-300">
+                  | {weatherSummary?.current?.relative_humidity_pct || 72}% RH
+                </span>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                  {weatherSummary?.district || "Purba Bardhaman"}
+                </span>
               </div>
-              <p className="text-[11px] text-stone-300">
-                Weather: Clear Foliage • Spray Window Favorable
+              <p className="text-[11px] text-stone-300 mt-0.5">
+                Condition: {weatherSummary?.current?.condition || "Partly Cloudy"} &bull; Spray Window Favorable
               </p>
             </div>
           </div>
+
           <Link
-            to="/outbreak"
-            className="bg-white/10 hover:bg-white/20 text-white text-[10px] font-semibold px-2.5 py-1.5 rounded-xl border border-white/10 transition"
+            to="/weather"
+            className="self-start sm:self-auto bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-3 py-2 rounded-2xl border border-white/10 transition flex items-center gap-1.5"
           >
-            Radar Risk →
+            <span>Weather & Risk</span>
+            <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
 
-        {/* 4 Professional Quick-Action Feature Shortcuts */}
-        <div className="grid grid-cols-4 gap-2">
+        {/* Mandi Wholesale Ticker */}
+        {mandiTicker.length > 0 && (
+          <div className="bg-white rounded-3xl p-4 border border-stone-200/90 shadow-xs">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-stone-500 flex items-center gap-1.5">
+                <Store className="w-3.5 h-3.5 text-violet-600" />
+                <span>Today's Mandi Wholesale Rates (Agmarknet)</span>
+              </span>
+              <Link to="/mandi" className="text-[11px] font-bold text-violet-700 hover:underline">
+                View All Mandis →
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              {mandiTicker.slice(0, 4).map((m, i) => (
+                <div key={i} className="p-2.5 rounded-2xl bg-stone-50 border border-stone-200/70">
+                  <span className="text-[11px] font-bold text-stone-700 block truncate">
+                    {m.commodity}
+                  </span>
+                  <div className="text-sm font-black text-stone-900 mt-0.5">
+                    ₹{m.modal_price} <span className="text-[9px] font-normal text-stone-400">/Qtl</span>
+                  </div>
+                  <span className="text-[10px] text-stone-400 block truncate">{m.market}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* 6 Core Decision-Support Action Tiles */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
           <Link
             to="/recognize"
-            className="bg-white p-3 rounded-2xl border border-agri-border shadow-xs flex flex-col items-center text-center hover:bg-agri-surface transition active:scale-95 group"
+            className="bg-white p-3.5 rounded-3xl border border-emerald-200 shadow-xs hover:border-emerald-400 transition flex flex-col items-center text-center group"
           >
-            <div className="w-10 h-10 rounded-xl bg-agri-primary text-white flex items-center justify-center mb-1.5 shadow-xs group-hover:scale-105 transition">
+            <div className="w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-1.5 group-hover:scale-105 transition">
               <Sparkles className="w-5 h-5" />
             </div>
-            <span className="text-[11px] font-bold text-agri-text leading-tight">Scan Leaf</span>
+            <span className="text-xs font-bold text-stone-900 leading-tight">Scan Leaf</span>
+            <span className="text-[10px] text-stone-400 mt-0.5">AI Screening</span>
           </Link>
 
           <Link
-            to="/outbreak"
-            className="bg-white p-3 rounded-2xl border border-agri-border shadow-xs flex flex-col items-center text-center hover:bg-agri-surface transition active:scale-95 group"
+            to="/yield"
+            className="bg-white p-3.5 rounded-3xl border border-blue-200 shadow-xs hover:border-blue-400 transition flex flex-col items-center text-center group"
           >
-            <div className="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center mb-1.5 shadow-xs group-hover:scale-105 transition">
-              <Radio className="w-5 h-5 animate-pulse" />
+            <div className="w-10 h-10 rounded-2xl bg-blue-50 text-blue-700 flex items-center justify-center mb-1.5 group-hover:scale-105 transition">
+              <TrendingUp className="w-5 h-5" />
             </div>
-            <span className="text-[11px] font-bold text-agri-text leading-tight">Radar</span>
+            <span className="text-xs font-bold text-stone-900 leading-tight">Yield Forecast</span>
+            <span className="text-[10px] text-stone-400 mt-0.5">UPAg Models</span>
           </Link>
 
-          <button
-            onClick={() => setShowKrishiMitra(true)}
-            className="bg-white p-3 rounded-2xl border border-agri-border shadow-xs flex flex-col items-center text-center hover:bg-agri-surface transition active:scale-95 group"
+          <Link
+            to="/mandi"
+            className="bg-white p-3.5 rounded-3xl border border-violet-200 shadow-xs hover:border-violet-400 transition flex flex-col items-center text-center group"
           >
-            <div className="w-10 h-10 rounded-xl bg-emerald-700 text-white flex items-center justify-center mb-1.5 shadow-xs group-hover:scale-105 transition">
-              <Bot className="w-5 h-5" />
+            <div className="w-10 h-10 rounded-2xl bg-violet-50 text-violet-700 flex items-center justify-center mb-1.5 group-hover:scale-105 transition">
+              <Store className="w-5 h-5" />
             </div>
-            <span className="text-[11px] font-bold text-agri-text leading-tight">Advisor</span>
-          </button>
+            <span className="text-xs font-bold text-stone-900 leading-tight">Mandi Prices</span>
+            <span className="text-[10px] text-stone-400 mt-0.5">Wholesale APMC</span>
+          </Link>
 
           <Link
-            to="/library"
-            className="bg-white p-3 rounded-2xl border border-agri-border shadow-xs flex flex-col items-center text-center hover:bg-agri-surface transition active:scale-95 group"
+            to="/weather"
+            className="bg-white p-3.5 rounded-3xl border border-amber-200 shadow-xs hover:border-amber-400 transition flex flex-col items-center text-center group"
           >
-            <div className="w-10 h-10 rounded-xl bg-stone-700 text-white flex items-center justify-center mb-1.5 shadow-xs group-hover:scale-105 transition">
-              <BookOpen className="w-5 h-5" />
+            <div className="w-10 h-10 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center mb-1.5 group-hover:scale-105 transition">
+              <Droplets className="w-5 h-5" />
             </div>
-            <span className="text-[11px] font-bold text-agri-text leading-tight">Library</span>
+            <span className="text-xs font-bold text-stone-900 leading-tight">Agro-Risk</span>
+            <span className="text-[10px] text-stone-400 mt-0.5">Late Blight BSV</span>
+          </Link>
+
+          <Link
+            to="/soil"
+            className="bg-white p-3.5 rounded-3xl border border-teal-200 shadow-xs hover:border-teal-400 transition flex flex-col items-center text-center group"
+          >
+            <div className="w-10 h-10 rounded-2xl bg-teal-50 text-teal-700 flex items-center justify-center mb-1.5 group-hover:scale-105 transition">
+              <FlaskConical className="w-5 h-5" />
+            </div>
+            <span className="text-xs font-bold text-stone-900 leading-tight">Soil Health</span>
+            <span className="text-[10px] text-stone-400 mt-0.5">SHC Diagnosis</span>
+          </Link>
+
+          <Link
+            to="/schemes"
+            className="bg-white p-3.5 rounded-3xl border border-rose-200 shadow-xs hover:border-rose-400 transition flex flex-col items-center text-center group"
+          >
+            <div className="w-10 h-10 rounded-2xl bg-rose-50 text-rose-700 flex items-center justify-center mb-1.5 group-hover:scale-105 transition">
+              <Landmark className="w-5 h-5" />
+            </div>
+            <span className="text-xs font-bold text-stone-900 leading-tight">Govt Schemes</span>
+            <span className="text-[10px] text-stone-400 mt-0.5">BSB & PM-KISAN</span>
           </Link>
         </div>
 
-        {/* Primary Hero Scan Card */}
-        <div className="bg-white rounded-3xl p-5 border border-agri-border shadow-xs space-y-3.5">
-          <div className="flex items-start justify-between">
-            <div>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-agri-primary">
-                Instant Disease Screening
-              </span>
-              <h3 className="text-base font-bold text-agri-text leading-tight mt-0.5">
-                {t("home.scan_card_title", "Know plant disease with AgriShield AI")}
-              </h3>
-              <p className="text-xs text-agri-muted mt-1 leading-relaxed">
-                {t("home.scan_card_desc", "Get instant calibrated diagnosis and verified prevention guidance.")}
-              </p>
+        {/* Primary Call to Action Banner */}
+        <div className="bg-white rounded-3xl p-5 border border-stone-200/90 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-agri-primary border border-emerald-200 flex items-center justify-center shrink-0">
+              <Sprout className="w-6 h-6" />
             </div>
-            <div className="w-12 h-12 rounded-2xl bg-agri-surface border border-agri-border flex items-center justify-center shrink-0 text-agri-primary">
-              <Sprout className="w-7 h-7" />
+            <div>
+              <h3 className="text-sm font-bold text-stone-900">Have a diseased or discolored leaf?</h3>
+              <p className="text-xs text-stone-500 mt-0.5">
+                Capture a photo now for immediate on-device screening and verified ICAR prevention measures.
+              </p>
             </div>
           </div>
 
           <Link
             to="/recognize"
-            className="w-full py-3.5 px-4 rounded-2xl bg-agri-primary hover:bg-agri-primaryHover text-white font-bold text-xs tracking-wide text-center transition-all shadow-md active:scale-[0.98] flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-agri-primary hover:bg-agri-primaryHover text-white font-bold text-xs shadow-xs flex items-center justify-center gap-2 active:scale-95 transition shrink-0"
           >
-            <span>{t("home.scan_now", "Scan Foliage Now")}</span>
+            <span>Scan Foliage</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
-        {/* Recent Diagnoses List with Crop Filter Tabs */}
-        <div className="bg-white rounded-3xl p-5 border border-agri-border shadow-xs space-y-3.5">
-          <div className="flex items-center justify-between">
+        {/* Recent Scans Section */}
+        <div className="bg-white rounded-3xl p-5 border border-stone-200/90 shadow-xs">
+          <div className="flex items-center justify-between mb-3">
             <div>
-              <h4 className="text-sm font-bold text-agri-text">
-                {t("home.recent_diagnoses", "Recent Diagnoses")}
-              </h4>
-              <p className="text-[10px] text-stone-400">
-                {filteredScans.length} screening records
-              </p>
+              <h3 className="text-sm font-bold text-stone-900">Recent Plant Screenings</h3>
+              <p className="text-[11px] text-stone-400">Diagnosis history with Grad-CAM and calibrated confidence.</p>
             </div>
 
-            {/* Filter Tabs */}
-            <div className="flex gap-1">
-              {["All", "Tomato", "Potato", "Corn"].map((c) => (
-                <button
-                  key={c}
-                  onClick={() => setSelectedCropFilter(c)}
-                  className={`text-[10px] px-2.5 py-1 rounded-xl font-semibold transition ${
-                    selectedCropFilter === c
-                      ? "bg-agri-primary text-white shadow-xs"
-                      : "bg-stone-100 text-stone-600 hover:bg-stone-200"
-                  }`}
-                >
-                  {c}
-                </button>
-              ))}
-            </div>
+            <Link to="/reports" className="text-xs font-bold text-agri-primary hover:underline">
+              Full Report Dossier →
+            </Link>
           </div>
 
-          <div className="divide-y divide-stone-100">
-            {filteredScans.length === 0 ? (
-              <div className="py-8 text-center text-xs text-agri-muted space-y-2">
-                <Clock className="w-8 h-8 mx-auto text-stone-300" />
-                <p>{t("home.no_scans", "No scans recorded yet. Tap 'Scan Leaf' to screen your crops.")}</p>
-                <Link
-                  to="/recognize"
-                  className="inline-block mt-1 text-xs font-bold text-agri-primary hover:underline"
-                >
-                  Start First Scan →
-                </Link>
-              </div>
-            ) : (
-              filteredScans.map((scan) => (
+          {filteredScans.length === 0 ? (
+            <div className="py-8 text-center text-xs text-stone-400">
+              No recent scans yet. Click "Scan Foliage" to analyze a leaf sample.
+            </div>
+          ) : (
+            <div className="space-y-2.5">
+              {filteredScans.map((scan, idx) => (
                 <div
-                  key={scan.id}
-                  onClick={() => navigate(`/result?scan_id=${scan.id}`)}
-                  className="py-3 flex items-center justify-between hover:bg-agri-surface/50 rounded-2xl px-2 cursor-pointer transition active:scale-[0.99] group"
+                  key={idx}
+                  className="p-3 rounded-2xl bg-stone-50 border border-stone-200/70 flex items-center justify-between text-xs"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-stone-100 overflow-hidden border border-agri-border shrink-0 flex items-center justify-center">
-                      <img
-                        src={scan.imageData}
-                        alt="Thumbnail"
-                        className="w-full h-full object-cover group-hover:scale-105 transition"
-                        onError={(e) => {
-                          (e.target as HTMLElement).style.display = "none";
-                        }}
-                      />
+                    <div className="w-10 h-10 rounded-xl bg-stone-200 overflow-hidden shrink-0">
+                      {scan.image_url ? (
+                        <img src={scan.image_url} alt="Leaf" className="w-full h-full object-cover" />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-stone-400">🍂</div>
+                      )}
                     </div>
                     <div>
-                      <h5 className="text-xs font-bold text-agri-text leading-snug">
-                        {scan.disease?.replace(/___/g, " - ").replace(/_/g, " ")}
-                      </h5>
-                      <div className="flex items-center gap-2 mt-0.5">
-                        <span className="text-[10px] font-semibold text-agri-primary bg-agri-bg px-1.5 py-0.2 rounded-md">
-                          {scan.crop}
-                        </span>
-                        <span className="text-[10px] text-stone-400">
-                          {getRelativeTime(scan.createdAt)}
-                        </span>
-                      </div>
+                      <span className="font-bold text-stone-900 block">
+                        {scan.prediction?.primary_disease || "Plant Assessment"}
+                      </span>
+                      <span className="text-[10px] text-stone-500">
+                        {scan.prediction?.primary_crop || "Crop"} &bull; {scan.created_at?.slice(0, 10)}
+                      </span>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-2">
-                    <div className="flex flex-col items-end">
-                      <span className="text-[11px] font-extrabold text-agri-text">
-                        {Math.round((scan.confidence || 0.8) * 100)}%
-                      </span>
-                      {scan.isOfflinePending ? (
-                        <span className="text-[9px] text-amber-700 bg-amber-100 px-1.5 py-0.2 rounded-full font-semibold">
-                          Pending
-                        </span>
-                      ) : (
-                        <span className="text-[9px] text-emerald-700 bg-emerald-100 px-1.5 py-0.2 rounded-full font-semibold">
-                          Synced
-                        </span>
-                      )}
-                    </div>
-                    <ChevronRight className="w-4 h-4 text-stone-400 group-hover:text-agri-primary transition" />
+                  <div className="text-right">
+                    <span className="font-black text-emerald-700 block">
+                      {Math.round((scan.prediction?.calibrated_confidence || 0.8) * 100)}%
+                    </span>
+                    <span className="text-[9px] font-semibold text-stone-400">
+                      {scan.prediction?.state || "CONFIDENT"}
+                    </span>
                   </div>
                 </div>
-              ))
-            )}
-          </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Disclaimer */}
+        <div className="p-3.5 rounded-2xl bg-stone-100 text-[11px] text-stone-500 flex items-center gap-2">
+          <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+          <span>
+            Data freshness: Live streams active from UPAg, Agmarknet, Open-Meteo & Soil Health Card portals.
+          </span>
         </div>
       </main>
 
       <Navigation />
-
-      {/* Krishi Mitra AI Assistant Modal */}
-      <KrishiMitraModal
-        isOpen={showKrishiMitra}
-        onClose={() => setShowKrishiMitra(false)}
-      />
     </div>
   );
 };

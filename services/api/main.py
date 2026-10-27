@@ -12,7 +12,26 @@ from fastapi.staticfiles import StaticFiles
 from services.api.core.config import settings
 from services.api.database.connection import Base, engine, SessionLocal
 from services.api.database.seed import seed_database
-from services.api.routers import auth, predict, scans, farms, diseases, sync, feedback, health, assistant, forecast, outbreak
+from services.api.routers import (
+    auth,
+    predict,
+    scans,
+    farms,
+    diseases,
+    sync,
+    feedback,
+    health,
+    assistant,
+    forecast,
+    outbreak,
+    yield_forecast,
+    weather,
+    mandi,
+    soil,
+    schemes,
+    sources,
+    reports,
+)
 
 
 @asynccontextmanager
@@ -67,6 +86,13 @@ app.include_router(feedback.router, prefix=settings.API_V1_STR)
 app.include_router(assistant.router, prefix=settings.API_V1_STR)
 app.include_router(forecast.router, prefix=settings.API_V1_STR)
 app.include_router(outbreak.router, prefix=settings.API_V1_STR)
+app.include_router(yield_forecast.router, prefix=settings.API_V1_STR)
+app.include_router(weather.router, prefix=settings.API_V1_STR)
+app.include_router(mandi.router, prefix=settings.API_V1_STR)
+app.include_router(soil.router, prefix=settings.API_V1_STR)
+app.include_router(schemes.router, prefix=settings.API_V1_STR)
+app.include_router(sources.router, prefix=settings.API_V1_STR)
+app.include_router(reports.router, prefix=settings.API_V1_STR)
 
 # Direct root health endpoint
 app.include_router(health.router)
