@@ -85,6 +85,14 @@ export async function submitPrediction(formData: FormData) {
   return res.json();
 }
 
+export async function fetchScanResult(scanId: string, lang = "en") {
+  const res = await fetch(`${API_BASE}/predict/scans/${scanId}?language=${lang}`, {
+    headers: getAuthHeaders(),
+  });
+  if (!res.ok) return null;
+  return res.json();
+}
+
 export async function fetchUserScans(page = 1, size = 20, crop?: string) {
   let url = `${API_BASE}/scans?page=${page}&size=${size}`;
   if (crop) url += `&crop=${encodeURIComponent(crop)}`;

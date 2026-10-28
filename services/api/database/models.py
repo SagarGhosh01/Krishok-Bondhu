@@ -172,6 +172,7 @@ class Prediction(Base):
     diagnostic_state = Column(String(50), nullable=False)  # CONFIDENT, UNCERTAIN, CANNOT_ASSESS
     top_alternatives_json = Column(Text, nullable=True)
     gradcam_path = Column(String(512), nullable=True)
+    severity_json = Column(Text, nullable=True)
     created_at = Column(DateTime, default=utc_now, nullable=False)
 
     scan = relationship("Scan", back_populates="prediction")

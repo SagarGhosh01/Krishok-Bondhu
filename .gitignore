@@ -37,7 +37,11 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Environment
+# Environment & Database
 .env
+agrishield.db
 services/api/agrishield.db-shm
 services/api/agrishield.db-wal
+services/api/uploads/*
+!services/api/uploads/.gitkeep
+

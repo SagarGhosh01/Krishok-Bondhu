@@ -45,6 +45,12 @@ class FoliarSeverityOut(BaseModel):
     projected_yield_loss_pct: str
     lesion_spot_count: int
     contour_image_base64: Optional[str] = None
+    healthy_green_pct: float = 100.0
+    chlorosis_yellow_pct: float = 0.0
+    necrosis_brown_pct: float = 0.0
+    discoloration_type: str = "Uniform Photosynthetic Pigment"
+    discoloration_diagnosis: str = "Leaf shows normal photosynthetic coloration without pathological discoloration."
+    discoloration_level: str = "Trace"
 
 
 class PredictionResponse(BaseModel):

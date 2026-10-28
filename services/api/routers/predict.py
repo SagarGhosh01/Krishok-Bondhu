@@ -68,3 +68,21 @@ async def predict_crop_disease(
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
     except Exception as e:
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=f"Diagnostic service error: {str(e)}")
+
+
+@router.get("/predict/scans/{scan_id}", response_model=PredictionResponse)
+def get_scan_result(
+    scan_id: str,
+    language: Optional[str] = "en",
+    db: Session = Depends(get_db),
+):
+    """
+    Retrieves stored diagnosis and foliar discoloration analysis for a scan ID.
+    Accessible publicly so farmers can revisit or share direct scan links.
+    """
+    prediction_svc = PredictionService.get_instance()
+    res = prediction_svc.get_scan(scan_id, db, language or "en")
+    if not res:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Scan not found or expired.")
+    return res
+

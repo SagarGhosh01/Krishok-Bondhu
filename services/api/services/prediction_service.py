@@ -180,23 +180,31 @@ class PredictionService:
             except Exception as e:
                 print(f"[Grad-CAM Error] {e}")
 
-        # 4b. Quantitative Foliar Severity & ICAR 5-Stage Scale
+        # 4b. Quantitative Foliar Severity & Discoloration Analysis
         foliar_severity = None
         if outcome.state != DiagnosticState.CANNOT_ASSESS:
             try:
                 np_img_rgb = np.array(image.convert("RGB"), dtype=np.uint8)
-                if outcome.is_healthy:
+                sev_mask = heatmap if "heatmap" in locals() and heatmap is not None else None
+                sev_res = estimate_foliar_severity(np_img_rgb, gradcam_mask=sev_mask)
+                
+                # If model predicted healthy and foliar damage is low, keep healthy grading
+                if outcome.is_healthy and sev_res.severity_percentage <= 5.0:
                     foliar_severity = FoliarSeverityOut(
                         severity_percentage=0.0,
                         severity_grade=1,
                         grade_label="Healthy Foliage",
                         projected_yield_loss_pct="0% (Optimal Growth)",
                         lesion_spot_count=0,
-                        contour_image_base64=None,
+                        contour_image_base64=sev_res.contour_image_base64,
+                        healthy_green_pct=100.0,
+                        chlorosis_yellow_pct=0.0,
+                        necrosis_brown_pct=0.0,
+                        discoloration_type="Uniform Photosynthetic Pigment",
+                        discoloration_diagnosis="Normal, healthy chlorophyll distribution. Leaf blade exhibits vigorous green coloration without pathological discoloration.",
+                        discoloration_level="Trace",
                     )
                 else:
-                    sev_mask = heatmap if "heatmap" in locals() and heatmap is not None else None
-                    sev_res = estimate_foliar_severity(np_img_rgb, gradcam_mask=sev_mask)
                     foliar_severity = FoliarSeverityOut(
                         severity_percentage=sev_res.severity_percentage,
                         severity_grade=sev_res.severity_grade,
@@ -204,6 +212,12 @@ class PredictionService:
                         projected_yield_loss_pct=sev_res.projected_yield_loss_pct,
                         lesion_spot_count=sev_res.lesion_spot_count,
                         contour_image_base64=sev_res.contour_image_base64,
+                        healthy_green_pct=sev_res.healthy_green_pct,
+                        chlorosis_yellow_pct=sev_res.chlorosis_yellow_pct,
+                        necrosis_brown_pct=sev_res.necrosis_brown_pct,
+                        discoloration_type=sev_res.discoloration_type,
+                        discoloration_diagnosis=sev_res.discoloration_diagnosis,
+                        discoloration_level=sev_res.discoloration_level,
                     )
             except Exception as e:
                 print(f"[Foliar Severity Error] {e}")
@@ -283,6 +297,7 @@ class PredictionService:
             diagnostic_state=outcome.state.value,
             top_alternatives_json=json.dumps(top_alts_dicts),
             gradcam_path=gradcam_url,
+            severity_json=json.dumps(foliar_severity.model_dump()) if foliar_severity else None,
         )
         db.add(pred_record)
         db.commit()
@@ -326,3 +341,97 @@ class PredictionService:
             requires_expert_consultation=outcome.requires_expert_consultation,
             model_version=self.version_str,
         )
+
+    def get_scan(self, scan_id: str, db: Session, language: str = "en") -> Optional[PredictionResponse]:
+        scan = db.query(Scan).filter(Scan.id == scan_id).first()
+        if not scan:
+            return None
+
+        pred = db.query(Prediction).filter(Prediction.scan_id == scan_id).first()
+        if not pred:
+            return None
+
+        # Reconstruct severity
+        severity = None
+        if pred.severity_json:
+            try:
+                sev_dict = json.loads(pred.severity_json)
+                severity = FoliarSeverityOut(**sev_dict)
+            except Exception:
+                pass
+
+        # Reconstruct top alternatives
+        top_alts = []
+        if pred.top_alternatives_json:
+            try:
+                alts_list = json.loads(pred.top_alternatives_json)
+                top_alts = [AlternativeCandidateOut(**a) for a in alts_list]
+            except Exception:
+                pass
+
+        # Reconstruct advisory
+        advisory_summary = None
+        scientific_name = None
+        if pred.predicted_class:
+            meta = TAXONOMY_METADATA.get(pred.predicted_class, {})
+            scientific_name = meta.get("scientific_name")
+
+            disease = db.query(Disease).filter(Disease.class_key == pred.predicted_class).first()
+            if disease:
+                trans = db.query(DiseaseTranslation).filter(
+                    DiseaseTranslation.disease_id == disease.id,
+                    DiseaseTranslation.language == language,
+                ).first()
+                adv = db.query(Advisory).filter(
+                    Advisory.disease_id == disease.id,
+                    Advisory.language == language,
+                ).first()
+
+                if trans and adv:
+                    advisory_summary = AdvisorySummaryOut(
+                        language=language,
+                        display_name=trans.display_name,
+                        description=trans.description,
+                        symptoms=trans.symptoms,
+                        cultural_practices=adv.cultural_practices,
+                        biological_control=adv.biological_control,
+                        chemical_reference=adv.chemical_reference,
+                        source_title=adv.source_title,
+                        source_url=adv.source_url,
+                        reviewer_name=adv.reviewer_name,
+                        review_date=adv.review_date.isoformat() if adv.review_date else None,
+                    )
+
+        disease_name = meta.get(language, meta.get("disease_name", pred.predicted_class)) if pred.predicted_class else "Unknown"
+
+        return PredictionResponse(
+            scan_id=scan.id,
+            state=pred.diagnostic_state,
+            primary_class=pred.predicted_class,
+            primary_crop=pred.crop,
+            primary_disease=disease_name,
+            scientific_name=scientific_name,
+            is_healthy=(pred.predicted_class and "healthy" in pred.predicted_class.lower()),
+            calibrated_confidence=pred.calibrated_confidence,
+            reliability_score=pred.reliability_score,
+            energy_score=0.0,
+            quality=QualityCheckOut(
+                passed=True,
+                blur_score=scan.blur_score,
+                luminance=scan.luminance,
+                width=scan.width,
+                height=scan.height,
+                defect=None,
+                message="Retrieved stored diagnosis",
+            ),
+            top_alternatives=top_alts,
+            advisory=advisory_summary,
+            severity=severity,
+            gradcam_url=pred.gradcam_path,
+            gradcam_disclaimer="Highlighted regions show where the model looked. This is a visual screening aid.",
+            message=f"Screening complete for {pred.crop}.",
+            action_guidance="Review clinical foliar discoloration metrics and ICAR recommended practices.",
+            requires_expert_consultation=(pred.diagnostic_state != "CONFIDENT"),
+            model_version=self.version_str,
+        )
+
